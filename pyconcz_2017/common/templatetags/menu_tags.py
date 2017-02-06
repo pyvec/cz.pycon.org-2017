@@ -8,7 +8,7 @@ register = template.Library()
 def show_menu(context):
     menu_items = [
         {
-            'path': '/2016/',
+            'path': '/2017/',
             'icon': 'fa-home',
             'title': 'Homepage',
         }, {
@@ -22,48 +22,11 @@ def show_menu(context):
                     'path': reverse('team_list'),
                     'title': 'Team'
                 }, {
-                    'path': reverse('sponsors_list'),
-                    'title': 'Sponsors'
-                }, {
                     'path': reverse('about_code'),
                     'title': 'Code of Conduct'
                 },
             ]
-        }, {
-            'path': reverse('about_brno'),
-            'title': 'Brno',
-            'menu': [
-                {
-                    'path': reverse('about_brno'),
-                    'title': 'Guide',
-                }, {
-                    'path': reverse('about_brno') + "#how-to-get-to-brno",
-                    'title': 'Travelling',
-                }, {
-                    'path': reverse('about_brno') + "#accommodation-tips",
-                    'title': 'Accommodation',
-                },
-            ]
-        }, {
-            'path': reverse('speakers_schedule'),
-            'title': 'Program',
-            'menu': [
-                {
-                    'path': reverse('speakers_schedule'),
-                    'title': 'Schedule',
-                }, {
-                    'path': reverse('speakers_list', kwargs={'type': 'talks'}),
-                    'title': 'Speakers',
-                }, {
-                    'path': reverse('speakers_list', kwargs={'type': 'workshops'}),
-                    'title': 'Workshops',
-                },
-            ]
-        }, {
-            'path': 'https://ti.to/pyvec/pycon-cz-2016',
-            'title': 'Tickets',
-            'highlight': True
-        }
+        },
     ]
 
     path = context['request'].path
