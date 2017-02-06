@@ -9,7 +9,7 @@ from pyconcz_2017.common.views import homepage
 prefixed_urlpatterns = [
     url(r'^$', homepage, name='homepage'),
     url(r'^announcements/', include('pyconcz_2017.announcements.urls')),
-    url(r'^proposals/workshops/$', RedirectView.as_view(url='/2016/proposals/talks')),
+    url(r'^proposals/workshops/$', RedirectView.as_view(url='/2017/proposals/talks')),
     url(r'^proposals/', include('pyconcz_2017.proposals.urls')),
 
     url(r'^about/team/', include('pyconcz_2017.team.urls')),
@@ -35,9 +35,9 @@ urlpatterns = (
     static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) +
     static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) +
     [
-        url(r'^2016/', include(prefixed_urlpatterns)),
+        url(r'^2017/', include(prefixed_urlpatterns)),
         url(r'^admin/', include(admin.site.urls)),
-        url(r'^$', RedirectView.as_view(url='/2016/')),
+        url(r'^$', RedirectView.as_view(url='/2017/')),
     ]
 )
 
