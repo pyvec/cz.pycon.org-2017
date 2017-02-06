@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% block meta_title %}PyCon CZ 2016{% endblock %}</title>
+  <title>{% block meta_title %}PyCon CZ 2017{% endblock %}</title>
   {% block meta_head %}
       <meta property="og:image" content="{% static "img/pyconlogo.png" %}">
   {% endblock %}
@@ -29,7 +29,7 @@
 
     <div class="container">
       <a href="{% url "homepage" %}" class="pyconlogo"><img src="{% static "img/pyconlogo.svg" %}" alt="PyCon CZ"></a>
-      <h2 class="header-title">PyCon CZ 2016 Brno <br>28-30 October</h2>
+      <h2 class="header-title">PyCon CZ 2017 Prague <br></h2>
     </div>
   </header>
 
@@ -47,14 +47,19 @@
 
           <ul>
             <li><a href="{% url "team_list" %}">Team</a></li>
+            <!--
             <li><a href="{% url "homepage" %}#tickets">Tickets</a></li>
+            -->
+            <!--
             <li><a href="{% url "sponsors_offer" %}">Sponsorship</a></li>
+            -->
             <li class="nav-highlight">
               <a href="{% url "about_code" %}">Code of Conduct</a>
             </li>
           </ul>
         </li>
 
+        <!--
         <li class="nav-section">
           <a href="{% url "about_brno" %}">Brno, the city we love</a>
 
@@ -76,13 +81,14 @@
           </ul>
         </li>
 
-{#        <li class="nav-section"><a href="/2016/workshops/" class="nav-title">Sprints#}
+{#        <li class="nav-section"><a href="/2017/workshops/" class="nav-title">Sprints#}
 {#          &amp; Workshops</a>#}
 {#          <ul>#}
-{#            <li><a href="/2016/workshops/">Schedule</a></li>#}
-{#            <li><a href="/2016/workshops/#directions">Directions</a></li>#}
+{#            <li><a href="/2017/workshops/">Schedule</a></li>#}
+{#            <li><a href="/2017/workshops/#directions">Directions</a></li>#}
 {#          </ul>#}
 {#        </li>#}
+          -->
       </ul>
     </nav>
 
@@ -90,8 +96,8 @@
       <ul>
         <li><a href="https://twitter.com/pyconcz"><i class="fa fa-fw fa-twitter"></i></a></li>
         <li><a href="https://www.facebook.com/events/845895085510493/"><i class="fa fa-fw fa-facebook"></i></a></li>
-        <li><a href="http://lanyrd.com/2016/pyconcz/"><i class="fa fa-fw fa-calendar-check-o"></i></a></li>
-        <li><a href="https://github.com/pyvec/cz.pycon.org-2016"><i class="fa fa-fw fa-github"></i></a></li>
+        <li><a href="http://lanyrd.com/2017/pyconcz/"><i class="fa fa-fw fa-calendar-check-o"></i></a></li>
+        <li><a href="https://github.com/pyvec/cz.pycon.org-2017"><i class="fa fa-fw fa-github"></i></a></li>
         <li><a href="https://pyvec.slack.com"><i class="fa fa-fw fa-slack"></i></a></li>
         <li><a href="mailto:info@pycon.cz"><i class="fa fa-fw fa-envelope"></i></a></li>
       </ul>
