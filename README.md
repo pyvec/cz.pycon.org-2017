@@ -1,7 +1,7 @@
-PyConCZ 2016
+PyConCZ 2017
 ============
 
-PyCon CZ is coming back to Brno for it's second edition on 28-30th October 2016.
+PyCon CZ taking place in Prague for it's third edition.
 
 Contributing
 ------------
@@ -13,7 +13,7 @@ bundling frontend assets and Postgresql as a database.
 
 #### Manually
 
-Inside `pyconcz_2016` directory,
+Inside `pyconcz_2017` directory,
 run following commands to setup project for local development:
 
 1.  Prepare postgresql database: user `pyconcz`, password empty, database `pyconcz`
@@ -24,6 +24,17 @@ run following commands to setup project for local development:
     $ createuser --pwprompt pyconcz
     $ createdb -Opyconcz -Eutf8 pyconcz
     ```
+
+	Alternatively, you can use a sqlite database, if you only need to
+	change pages and style. For that, change django settings file
+	settings_dev.py, change DATABASES variable to:
+
+		DATABASES = {
+			'default': {
+				'ENGINE': 'django.db.backends.sqlite3',
+				'NAME': 'pyconcz',
+			}
+		}
 
 2.  `python3 -m venv env`
 3.  `pip install -r requirements-dev.txt`
@@ -48,7 +59,7 @@ each production build, you have to commit new files. Don't care about the old
 ones at the moment.
 
 1. `npm run build` (or `docker-compose run webpack npm run build` when using docker)
-2. `git add pyconcz_2016/static_build`
+2. `git add pyconcz_2017/static_build`
 
 
 License
