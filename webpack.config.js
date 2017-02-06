@@ -9,8 +9,8 @@ var debug = process.argv.indexOf('--release') === -1;
 var checkConfig = process.argv.indexOf('--check') !== -1;
 
 // Shared config values
-var context = path.resolve('pyconcz_2016', 'static');
-var outputPath = path.resolve('pyconcz_2016', 'static_build');
+var context = path.resolve('pyconcz_2017', 'static');
+var outputPath = path.resolve('pyconcz_2017', 'static_build');
 var entry = ['./index'];
 var plugins = [
   new CopyWebpackPlugin([
@@ -29,7 +29,7 @@ if (!debug) {
   plugins.push(
     new ExtractTextPlugin("css/styles-[hash].css"),
     new BundleTracker({
-      filename: './pyconcz_2016/static_build/webpack-stats.json'
+      filename: './pyconcz_2017/static_build/webpack-stats.json'
     })
   );
 
@@ -49,7 +49,7 @@ if (!debug) {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new BundleTracker({
-      filename: './pyconcz_2016/static_build/webpack-stats-dev.json'
+      filename: './pyconcz_2017/static_build/webpack-stats-dev.json'
     })
   );
 
