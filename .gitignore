@@ -3,7 +3,8 @@
 __pycache__/
 
 db.sqlite3
-
+pyconcz_2017/settings/local.py
+    
 # Node packages, tmp files
 node_modules/
 npm-debug.log

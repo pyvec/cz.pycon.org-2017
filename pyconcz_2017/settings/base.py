@@ -11,15 +11,16 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 TMP_DIR = os.path.join(BASE_DIR, '..', 'tmp')
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'provide in local.py'
 
 ADMINS = [
-    ('Tomáš Ehrlich', 'tomas.ehrlich@gmail.com')
+    ('max', 'kovykmax@gmail.com'),
+    ('starenka', 'starenka0@gmail.com'),
 ]
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -147,13 +148,13 @@ FORMAT_MODULE_PATH = [
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/2016/static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(TMP_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static_build')
 ]
 
-MEDIA_URL = '/2016/media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(TMP_DIR, 'media')
 
 WEBPACK_LOADER = {
