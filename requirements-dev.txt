@@ -28,6 +28,7 @@ six==1.10.0               # via pip-tools, prompt-toolkit, traitlets
 sqlparse==0.2.1           # via django-debug-toolbar
 traitlets==4.3.1          # via ipython
 wcwidth==0.1.7            # via prompt-toolkit
+fabric~=1.13.0
 
 # The following packages are commented out because they are
 # considered to be unsafe in a requirements file:

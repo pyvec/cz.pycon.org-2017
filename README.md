@@ -62,6 +62,10 @@ ones at the moment.
 2. `git add pyconcz_2017/static_build`
 
 
+### Depoloyment
+
+Just use `fab production deploy`
+
 License
 -------
 
