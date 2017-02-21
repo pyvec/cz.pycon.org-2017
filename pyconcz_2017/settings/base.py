@@ -19,16 +19,18 @@ TMP_DIR = os.path.join(BASE_DIR, '..', 'tmp')
 SECRET_KEY = 'provide in local.py'
 
 ADMINS = [
-    ('max', 'kovykmax@gmail.com'),
-    ('starenka', 'starenka0@gmail.com'),
+    ('admins', 'admin@pycon.cz'),
 ]
+
+DEFAULT_FROM_EMAIL = 'admin@pycon.cz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 SITE_ID = 1
 ALLOWED_HOSTS = [
-    'cz.pycon.org'
+    'cz.pycon.org',
+    'pycon.cz',
 ]
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
