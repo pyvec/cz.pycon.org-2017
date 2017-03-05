@@ -28,10 +28,15 @@ DEFAULT_FROM_EMAIL = 'admin@pycon.cz'
 DEBUG = False
 
 SITE_ID = 1
-ALLOWED_HOSTS = [
-    'cz.pycon.org',
-    'pycon.cz',
-]
+
+if DEBUG:
+    ALLOWED_HOSTS = []
+else:
+    ALLOWED_HOSTS = [
+        'cz.pycon.org',
+        'pycon.cz',
+    ]
+
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
@@ -96,7 +101,12 @@ try:
     DB_HOST = os.environ['DB_HOST']
     DB_PASS = os.environ['DB_PASS']
 except KeyError:
-    DATABASES = {}
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'pyconcz',
+        }
+    }
 else:
     DATABASES = {
         'default': {
@@ -150,7 +160,7 @@ FORMAT_MODULE_PATH = [
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/2016/static/'
 STATIC_ROOT = os.path.join(TMP_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static_build')

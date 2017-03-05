@@ -16,7 +16,12 @@ bundling frontend assets and Postgresql as a database.
 Inside `pyconcz_2017` directory,
 run following commands to setup project for local development:
 
-1.  Prepare postgresql database: user `pyconcz`, password empty, database `pyconcz`
+1.	You can either use sqlite database, if you only need to work with
+	static pages and styles, in which case, you don't need to setup
+	anything. Or, if you need to work with dynamic apps, you need to
+	use postgresql.
+
+	Prepare postgresql database: user `pyconcz`, password empty, database `pyconcz`
 
     E.g. on Mac:
 
@@ -25,32 +30,22 @@ run following commands to setup project for local development:
     $ createdb -Opyconcz -Eutf8 pyconcz
     ```
 
-	Alternatively, you can use a sqlite database, if you only need to
-	change pages and style. For that, change django settings file
-	settings_dev.py, change DATABASES variable to:
-
-		DATABASES = {
-			'default': {
-				'ENGINE': 'django.db.backends.sqlite3',
-				'NAME': 'pyconcz',
-			}
-		}
-
 2.  `python3 -m venv env`
 3.  `pip install -r requirements-dev.txt`
+4.	Change `DEBUG` to `True` in pyconcz_2017/settings/base.py
 4.  `./manage.py migrate`
 5.  `./manage.py runserver`
 6.  Open [http://localhost:8000]()
 
-If and **only if** you also want to work with styles and javascript, you need to have `node.js`.
+For styles and javascript to work, you need to have `node.js`.
 Inside root directory (the same directory where `manage.py` is) run following commands:
 
 1.  Add following line to your `/etc/hosts` file: `127.0.0.1 lan.pycon.cz`.
 2.  `npm install`
 3.  `npm start`
 
-Now open [http://lan.pycon.cz:8000]() and you should have development version of
-website with webpack hot reloading enabled.
+If you are working on styles and JS, open [http://lan.pycon.cz:8000]() and you should have development version of
+website with webpack hot reloading enabled
 
 ### Building
 
@@ -62,7 +57,7 @@ ones at the moment.
 2. `git add pyconcz_2017/static_build`
 
 
-### Depoloyment
+### Deployment
 
 Just use `fab production deploy`
 
