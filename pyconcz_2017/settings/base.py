@@ -96,7 +96,12 @@ try:
     DB_HOST = os.environ['DB_HOST']
     DB_PASS = os.environ['DB_PASS']
 except KeyError:
-    DATABASES = {}
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'pyconcz',
+        }
+    }
 else:
     DATABASES = {
         'default': {
