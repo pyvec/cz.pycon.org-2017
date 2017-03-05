@@ -13,8 +13,8 @@ class TalksConfig:
     title = 'Talks'
     cfp_title = 'Submit your talk'
     template_about = 'proposals/talks_about.html'
-    date_start = datetime(year=2016, month=8, day=1, hour=12, minute=0, tzinfo=tz)
-    date_end = datetime(year=2016, month=9, day=15, hour=23, minute=59, second=59, tzinfo=tz)
+    date_start = datetime(year=2017, month=3, day=6, hour=12, minute=0, tzinfo=tz)
+    date_end = datetime(year=2017, month=4, day=17, hour=23, minute=59, second=59, tzinfo=tz)
 
 
 class WorkshopsConfig:
@@ -23,8 +23,8 @@ class WorkshopsConfig:
     title = 'Workshops'
     cfp_title = 'Submit your workshop'
     template_about = 'proposals/workshops_about.html'
-    date_start = datetime(year=2016, month=8, day=1, hour=12, minute=0, tzinfo=tz)
-    date_end = datetime(year=2016, month=10, day=5, hour=12, minute=0, tzinfo=tz)
+    date_start = datetime(year=2017, month=3, day=6, hour=12, minute=0, tzinfo=tz)
+    date_end = datetime(year=2017, month=4, day=17, hour=23, minute=59, second=59, tzinfo=tz)
 
 
 class FinancialAidConfig:
