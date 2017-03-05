@@ -28,10 +28,15 @@ DEFAULT_FROM_EMAIL = 'admin@pycon.cz'
 DEBUG = False
 
 SITE_ID = 1
-ALLOWED_HOSTS = [
-    'cz.pycon.org',
-    'pycon.cz',
-]
+
+if DEBUG:
+    ALLOWED_HOSTS = []
+else:
+    ALLOWED_HOSTS = [
+        'cz.pycon.org',
+        'pycon.cz',
+    ]
+
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
