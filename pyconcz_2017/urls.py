@@ -17,6 +17,10 @@ prefixed_urlpatterns = [
     url(r'^sponsors/', include('pyconcz_2017.sponsors.urls')),
 
     # static pages
+    url(r'^proposals/$',
+        TemplateView.as_view(template_name='proposals/talks_about.html'),
+        name='proposals'),
+
     url(r'^about/$',
         TemplateView.as_view(template_name='pages/about.html'),
         name='about'),
