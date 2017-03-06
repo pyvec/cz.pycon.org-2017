@@ -22,6 +22,9 @@ def show_menu(context):
                     'path': reverse('team_list'),
                     'title': 'Team'
                 }, {
+                    'path': reverse('financial-aid'),
+                    'title': 'Financial Aid'
+                }, {
                     'path': reverse('about_code'),
                     'title': 'Code of Conduct'
                 },
