@@ -23,7 +23,7 @@ def proposal_create(request, *, key):
     elif is_public and config.date_end < right_now:
         return TemplateResponse(request, 'proposals/proposal_after.html', context)
 
-    ProposalForm = modelform_factory(config.model, exclude=['note', 'date'])
+    ProposalForm = modelform_factory(config.model, exclude=['note', 'date', 'accepted'])
 
     if request.method.lower() == 'post':
         form = ProposalForm(request.POST, request.FILES)
