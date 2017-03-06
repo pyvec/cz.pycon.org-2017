@@ -175,4 +175,4 @@ WEBPACK_LOADER = {
     }
 }
 
-SLACK_WEBHOOK = os.environ.get('SLACK_WEBHOOK')
+SLACK_WEBHOOK = ''  # This variable is set in local.py

@@ -17,3 +17,5 @@ DATABASES = {
         'CONN_MAX_AGE': 1800,
         },
 }
+
+SLACK_WEBHOOK = ''  # Webhook URL for slack CFP notifications

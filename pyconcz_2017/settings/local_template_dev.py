@@ -39,3 +39,5 @@ if os.path.exists(WEBPACK_STATS):
 else:
     print("If you're editing frontend files, plase run `npm start` "
           "and restart Django.")
+
+SLACK_WEBHOOK = ''  # Webhook URL for slack CFP notifications
