@@ -1,0 +1,41 @@
+Subject: Zveme vás na Pycon CZ: Python konferenci v Praze v červnu
+
+Hezký den přeji,
+
+píši Vám za organizační tým české konference věnované programovacímu jazyku
+Python, kterou pořádáme na začátku června 2017 v Praze.
+
+Snažíme se na jednom místě spojit veškerou veřejnost kolem Pythonu a daří se
+nám oslovit odborníky z praxe i úplné začátečníky. Naše konference je velice
+inkluzivní a přátelská. Zde posílám odkaz na webovou stránku akce, kde můžete
+krom aktuálních informací najít i ohlasy z minulého ročníku:
+
+    https://cz.pycon.org/2017/
+
+Z vašich akademických aktivit jsem vyrozuměl, že jazyk Python používáte. Proto
+bych Vás velice rád pozval k účasti na konferenci, a to především jako
+přednášející. Python je velmi oblíbený i v akademické sféře a rádi bychom
+tedy její zástupce měli i na letošním ročníku. Věřím, že pracujete na
+zajímavých věcech, o které byste se mohl s účastníky podělit.
+
+Také by určitě mohlo být zajímavé si poslechnout postřehy z pedagogického
+prostředí, například jak se vám osvědčilo Python vyučovat.
+Publikum konference by takové poznatky jistě přijalo s nadšením.
+Vzhledem k mezinárodnímu publiku je PyCon primárně v angličtině, ale konference
+letos přijímá i přednášky v češtině/slovenštině a nabízí pomoc s přípravou
+začínajícím speakerům. Řečníci mají navíc vstup zadarmo.
+
+Na této stránce najdete bližší informace k přednáškám a také přihlašovací
+formulář pro přednášku či workshop (přednášek je možné přihlásit i více,
+vybereme nejlepší):
+
+    https://cz.pycon.org/2017/proposals/
+
+Uzávěrka přihlášek na přednášky (CfP) je 17. dubna 2017.
+
+Budeme velmi rádi, pokud se s Vámi na konferenci potkáme.
+Potěšilo by nás rovněž, pokud byste mohl dát o konferenci vědět Vašim kolegům i
+studentům.
+
+S pozdravem
+XXX (s tituly)
