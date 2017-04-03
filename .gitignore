@@ -15,3 +15,6 @@ tmp/
 
 # Virtualenv
 env/
+
+# Pycharm
+.idea/
