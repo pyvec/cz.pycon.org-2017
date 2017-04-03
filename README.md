@@ -78,7 +78,7 @@ Old files are automatically replaced.
 
 ### Deployment
 
-Just use `fab production deploy`
+Just use `fab production deploy` to deploy to production or `fab beta deploy` to deploy to beta site.
 
 License
 -------
