@@ -16,6 +16,12 @@ def production():
     env.environment = 'production'
 
 
+@task
+def beta():
+    env.hosts = ['app@alpha-node-6.rosti.cz:13128']
+    env.environment = 'beta'
+
+
 def restart():
     run('supervisorctl restart app')
 
