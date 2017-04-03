@@ -1,6 +1,6 @@
 {% load render_bundle from webpack_loader %}
-{% load static menu_tags %}
-
+{% load static %}
+{% load menu_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,7 +79,7 @@
           </ul>
         </li>
 
-        <!--
+        {% comment %}
         <li class="nav-section">
           <a href="{% url "about_city" %}">Prague, the city we love too</a>
 
@@ -101,14 +101,14 @@
           </ul>
         </li>
 
-{#        <li class="nav-section"><a href="/2017/workshops/" class="nav-title">Sprints#}
-{#          &amp; Workshops</a>#}
-{#          <ul>#}
-{#            <li><a href="/2017/workshops/">Schedule</a></li>#}
-{#            <li><a href="/2017/workshops/#directions">Directions</a></li>#}
-{#          </ul>#}
-{#        </li>#}
-          -->
+        <li class="nav-section"><a href="/2017/workshops/" class="nav-title">Sprints
+          &amp; Workshops</a>
+          <ul>
+            <li><a href="/2017/workshops/">Schedule</a></li>
+            <li><a href="/2017/workshops/#directions">Directions</a></li>
+          </ul>
+        </li>
+        {% endcomment %}
       </ul>
     </nav>
 
@@ -157,6 +157,5 @@
 {% render_bundle 'main' 'js' %}
 {% block js_extra %}{% endblock %}
 <script async src="https://use.fontawesome.com/c0f5df5d14.js"></script>
-
 </body>
 </html>

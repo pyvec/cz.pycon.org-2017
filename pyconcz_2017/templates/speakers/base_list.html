@@ -1,5 +1,7 @@
 {% extends "_base.html" %}
 
+
+
 {% block content %}
   <div class="container">
     <h1>{% block speakers_title %}{% endblock %}</h1>
@@ -31,7 +33,7 @@
 
           <section class="sidebox">
             <div class="portrait">
-              <img src="{{ speaker.photo.url }}" alt="{{ speaker.full_name }}" />
+              <img src="{{ speaker.photo.url }}" alt="{{ speaker.full_name }}">
             </div>
 
             <section class="icons">
