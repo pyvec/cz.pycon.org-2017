@@ -3,7 +3,7 @@
 }
 
 .sponsor__level {
-  border-bottom: 1px solid $main-color;
+  border-bottom: 1px solid $color-main;
 
   @media (min-width: $mobile-break) {
     border-bottom: none;
@@ -47,7 +47,6 @@
   display: block;
   font-size: 0.8em;
 }
-
 
 .sponsors,
 .sponsors__item {
@@ -93,14 +92,14 @@
   }
 
   @media (max-width: 480px) {
-    img {width: 100%;}
-    .sponsors--platinum & {width: 60%;}
-    .sponsors--gold & {width: 50%;}
-    .sponsors--silver & {width: 40%;}
+    img { width: 100%; }
+    .sponsors--platinum & { width: 60%; }
+    .sponsors--gold & { width: 50%; }
+    .sponsors--silver & { width: 40%; }
 
     .sponsors--bronze &,
     .sponsors--media &,
     .sponsors--partners &,
-    .sponsors--diversity & {width: 35%;}
+    .sponsors--diversity & { width: 35%; }
   }
 }

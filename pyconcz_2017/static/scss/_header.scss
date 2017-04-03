@@ -1,6 +1,8 @@
 @import "~voidcss-vertical-rhythm";
 
 .pyconlogo {
+  display: inline-block;
+
   img {
     max-width: 280px;
     margin: 30px;
@@ -29,15 +31,15 @@
   margin: 15px 30px;
   text-align: left;
 
-  @media (max-width: 768px) {
-    display: block;
+  .homepage & {
     text-align: center;
+    display: block;
   }
 }
 
 header {
   .container {
-    border-bottom: solid 1px $light-color;
+    border-bottom: solid 1px $color-light;
     text-align: center;
   }
 }
@@ -50,7 +52,6 @@ header {
   background-color: white;
   height: 108px;
   padding: 0;
-
   z-index: 10000;
 
   &.--half {
@@ -73,7 +74,6 @@ header {
     display: table-row;
     margin: 0;
     padding: 0;
-
     $size: 16px;
     $baseline: vr-scale($size);
     font-size: $size;
@@ -102,7 +102,7 @@ header {
 
       .--level-1 & {
         border-top: 5px solid white;
-        border-bottom: 1px solid $light-color;
+        border-bottom: 1px solid $color-light;
 
         &:hover {
           border-top: 5px solid white;
@@ -110,10 +110,10 @@ header {
         }
 
         &.--selected {
-          border-top: 5px solid $light-color;
+          border-top: 5px solid $color-light;
           border-bottom: 1px solid white;
-          border-left: 1px solid $light-color;
-          border-right: 1px solid $light-color;
+          border-left: 1px solid $color-light;
+          border-right: 1px solid $color-light;
         }
       }
 

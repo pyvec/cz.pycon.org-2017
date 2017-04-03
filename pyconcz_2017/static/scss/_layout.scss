@@ -1,7 +1,6 @@
-
 body {
   margin-top: $top-offset;
-  color: $font-color;
+  color: $color-text-base;
   font-family: $main-font;
 }
 
@@ -42,7 +41,6 @@ body {
 
 @mixin heading($size, $top: 2, $bottom: 1) {
   $baseline: vr-scale($size);
-
   font-size: $size;
   font-family: $secondary-font;
   line-height: $baseline;
@@ -55,7 +53,6 @@ h1 {
 
   @media (max-width: 768px) {
     @include heading(30px, 0);
-
     margin-top: 1.26316em;
     margin-bottom: 0.5em;
   }
@@ -95,16 +92,16 @@ h6 {
 }
 
 strong {
-  color: $accent-color;
+  color: $color-accent;
 }
 
 a {
-  color: $main-color;
+  color: $color-main;
   font-family: $main-font;
   text-decoration: none;
 
   &:active {
-    color: darken($main-color, 10%);
+    color: darken($color-main, 10%);
   }
   &:hover {
     text-decoration: underline;

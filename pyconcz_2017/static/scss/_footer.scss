@@ -1,8 +1,9 @@
 footer {
-  background: url(/2016/static/img/grid.svg);
-  background-repeat: repeat-x;
-  background-size: 882px;
+  background-image: url("/2016/static/img/grid.min.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
   padding: 50px 15px 20px 15px;
+  margin-top: vr(1);
 
   @media (max-width: 768px) {
     text-align: center;
@@ -50,7 +51,7 @@ footer {
       }
 
       a:active {
-        color: darken($main-color, 5%);
+        color: darken($color-main, 5%);
         transition: unset;
         transform: scale(0.8);
       }

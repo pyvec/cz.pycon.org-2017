@@ -16,8 +16,7 @@
     display: block;
     margin-top: vr(0.8);
     margin-bottom: vr(0.2);
-    border-bottom: 1px solid $main-color;
-
+    border-bottom: 1px solid $color-main;
     font-size: 1em;
   }
 
@@ -32,20 +31,17 @@
   @media (min-width: $mobile-break) {
     &__time {
       @include tm-cell-padding;
-
       display: block;
       float: left;
       width: 10%;
       margin-top: 0;
       margin-bottom: 0;
-
       border: none;
       line-height: 1.5;
     }
 
     &__shared {
       @include tm-cell-padding;
-
       display: block;
       width: 90%;
       float: left;
@@ -57,13 +53,13 @@
     }
 
     &__slot--shared {
-      background-color: #eee;
+      background-color: $color-neutral-light;
     }
 
     &__header {
       @include clearfix;
       display: block;
-      border-bottom: 1px solid $main-color;
+      border-bottom: 1px solid $color-main;
     }
   }
 }
@@ -83,8 +79,7 @@
   &__room {
     display: block;
     font-size: 0.9em;
-    color: $muted-color;
-
+    color: $color-muted;
   }
 
   @media (min-width: $mobile-break) {
@@ -103,7 +98,6 @@
   }
 }
 
-
 .timeline__workshop {
   margin-bottom: vr(1);
 
@@ -119,8 +113,7 @@
   &__room {
     display: block;
     font-size: 0.9em;
-    color: $muted-color;
-
+    color: $color-muted;
   }
 
   @media (min-width: $mobile-break) {

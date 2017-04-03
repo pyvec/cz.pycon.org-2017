@@ -15,10 +15,32 @@ $container-xs: auto;
 
 $mobile-break: 768px;
 
-$main-color: #4E4FA5;
-$accent-color: #D83153;
-$font-color: #333333;
-$light-color: #e0e1fd;
-$muted-color: #bbbbbb;
-
 $top-offset: 7em;
+
+/*
+* Colors
+*/
+
+/*
+$color-logo-2016: hsl(232, 100%, 85%);
+$color-logo: hsl(179, 61%, 70%);
+*/
+
+/*
+$color-grid-2016:   hsl(349, 100%, 44%);
+$color-grid: hsl(294, 100%, 40%);
+*/
+
+//$color-main-2016: hsl(239, 36%, 48%);
+$color-main: hsl(180, 80%, 30%);
+//$color-accent-2016: hsl(348, 68%, 52%);
+$color-accent: hsl(290, 60%, 50%);
+
+//$color-light-2016: hsl(238, 88%, 94%);
+$color-light: hsl(180, 88%, 94%);
+
+$color-text-base: #333;
+
+$color-neutral-light: #eee;
+
+$color-muted: #bbb;
