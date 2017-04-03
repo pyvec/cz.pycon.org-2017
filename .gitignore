@@ -11,8 +11,10 @@ pyconcz
 # Node packages, tmp files
 node_modules/
 npm-debug.log
-pyconcz_2017/static_build/webpack-stats-dev.json
 tmp/
 
 # Virtualenv
 env/
+
+# Pycharm
+.idea/

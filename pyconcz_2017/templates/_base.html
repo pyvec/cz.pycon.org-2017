@@ -1,4 +1,3 @@
-{% load render_bundle from webpack_loader %}
 {% load static %}
 {% load menu_tags %}
 <!DOCTYPE html>
@@ -12,7 +11,8 @@
   {% block meta_head %}
     <meta property="og:image" content="{% static "img/pyconlogo.png" %}">
   {% endblock %}
-  {% render_bundle 'main' 'css' %}
+
+  <link type="text/css" href="{% static "css/pyconcz.css" %}" rel="stylesheet" />
 
   {# favicons #}
   <link rel="apple-touch-icon" sizes="180x180" href="{% static "img/favicon/apple-touch-icon.png" %}">
@@ -58,12 +58,8 @@
 
           <ul>
             <li><a href="{% url "team_list" %}">Team</a></li>
-            <!--
-            <li><a href="{% url "homepage" %}#tickets">Tickets</a></li>
-            -->
-            <!--
-            <li><a href="{% url "sponsors_offer" %}">Sponsorship</a></li>
-            -->
+            {% comment %}<li><a href="{% url "homepage" %}#tickets">Tickets</a></li>{% endcomment %}
+            {% comment %}<li><a href="{% url "sponsors_offer" %}">Sponsorship</a></li>{% endcomment %}
             <li class="nav-highlight">
               <a href="{% url "about_code" %}">Code of Conduct</a>
             </li>
@@ -154,8 +150,7 @@
 	  ga('send', 'pageview');
   </script>
 {% endif %}
-{% render_bundle 'main' 'js' %}
 {% block js_extra %}{% endblock %}
-<script async src="https://use.fontawesome.com/c0f5df5d14.js"></script>
+<script async defer src="https://use.fontawesome.com/c0f5df5d14.js"></script>
 </body>
 </html>
