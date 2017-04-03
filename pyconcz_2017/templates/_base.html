@@ -58,12 +58,8 @@
 
           <ul>
             <li><a href="{% url "team_list" %}">Team</a></li>
-            <!--
-            <li><a href="{% url "homepage" %}#tickets">Tickets</a></li>
-            -->
-            <!--
-            <li><a href="{% url "sponsors_offer" %}">Sponsorship</a></li>
-            -->
+            {% comment %}<li><a href="{% url "homepage" %}#tickets">Tickets</a></li>{% endcomment %}
+            {% comment %}<li><a href="{% url "sponsors_offer" %}">Sponsorship</a></li>{% endcomment %}
             <li class="nav-highlight">
               <a href="{% url "about_code" %}">Code of Conduct</a>
             </li>
