@@ -1,6 +1,5 @@
 django-webpack-loader
 Django
-newrelic
 Pillow
 psycopg2
 pytz

@@ -19,7 +19,6 @@ first==2.0.1              # via pip-tools
 idna==2.5                 # via cryptography
 ipython-genutils==0.1.0   # via traitlets
 ipython==5.1.0
-newrelic==2.70.0.51
 packaging==16.8           # via cryptography, setuptools
 paramiko==2.1.2           # via fabric3
 pexpect==4.2.1            # via ipython
