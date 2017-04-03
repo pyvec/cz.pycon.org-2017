@@ -81,6 +81,11 @@
     height: 100%;
     border: 1px solid $color-main;
     outline: none;
+    color: $color-text-base;
+    font-family: $secondary-font;
+    font-size: inherit;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 
   textarea {
@@ -141,10 +146,12 @@
     background: $color-light;
     border: solid 1px $color-main;
     transition: background-color 0.3s, font-weight 0.3s;
+    font-size: $font-big;
 
     &:active {
       font-weight: 700;
     }
+
     &:hover {
       background-color: $color-main;
       color: $color-light;
