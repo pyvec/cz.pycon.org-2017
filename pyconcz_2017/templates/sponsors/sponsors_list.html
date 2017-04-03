@@ -1,5 +1,7 @@
 {% extends "_base.html" %}
 
+
+
 {% block content %}
   {% regroup sponsors_list by get_level_display as sponsor_levels %}
 
@@ -21,7 +23,7 @@
 
       {% for sponsor in level.list %}
         <div class="sponsor sponsor--level-{{ level.grouper|lower }}">
-          <img class="sponsor__logo" src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}" />
+          <img class="sponsor__logo" src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}">
 
           <h3 class="sponsor__title">{{ sponsor.name }}</h3>
           <a class="sponsor__link" href="{{ sponsor.link_url }}">
