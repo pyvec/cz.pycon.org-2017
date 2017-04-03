@@ -33,11 +33,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-WEBPACK_STATS = os.path.join(BASE_DIR, 'static_build', 'webpack-stats-dev.json')
-if os.path.exists(WEBPACK_STATS):
-    WEBPACK_LOADER['DEFAULT']['STATS_FILE'] = WEBPACK_STATS
-else:
-    print("If you're editing frontend files, plase run `npm start` "
-          "and restart Django.")
-
 SLACK_WEBHOOK = ''  # Webhook URL for slack CFP notifications

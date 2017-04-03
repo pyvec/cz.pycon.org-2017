@@ -1,35 +1,35 @@
 {
-  "name": "cz.pycon.org-2016",
-  "version": "0.0.1",
-  "description": "Frontend of PyCon CZ 2016 website",
+  "name": "cz.pycon.org-2017",
+  "version": "0.0.2",
+  "description": "Frontend of PyCon CZ 2017 website",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node webpack.js",
-    "build": "webpack --config webpack.config.js --release"
+    "start": "gulp",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pyvec/cz.pycon.org-2016.git"
+    "url": "git+https://github.com/pyvec/cz.pycon.org-2017.git"
   },
   "author": "Pyvec",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pyvec/cz.pycon.org-2016/issues"
+    "url": "https://github.com/pyvec/cz.pycon.org-2017/issues"
   },
-  "homepage": "https://github.com/pyvec/cz.pycon.org-2016#readme",
+  "homepage": "https://github.com/pyvec/cz.pycon.org-2017#readme",
   "devDependencies": {
-    "copy-webpack-plugin": "^3.0.1",
-    "css-loader": "^0.23.1",
-    "extract-text-webpack-plugin": "^1.0.1",
-    "node-sass": "^3.8.0",
-    "normalize.css": "^4.1.1",
-    "react-hot-loader": "^1.3.0",
-    "sass-loader": "^3.2.1",
-    "style-loader": "^0.13.1",
-    "voidcss-vertical-rhythm": "^1.0.0",
-    "webpack": "^1.13.1",
-    "webpack-bundle-tracker": "0.0.93",
-    "webpack-dev-server": "^1.14.1"
+    "autoprefixer": "^6.7.2",
+    "browser-sync": "^2.18.7",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^3.0.4",
+    "gulp-postcss": "^6.3.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-watch": "^4.3.11",
+    "normalize.css": "^6.0.0",
+    "postcss-flexbugs-fixes": "^2.1.0",
+    "voidcss-vertical-rhythm": "^1.0.0"
   }
 }

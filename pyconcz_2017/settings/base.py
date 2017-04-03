@@ -51,8 +51,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.staticfiles',
 
-    'webpack_loader',
-
     'pyconcz_2017.announcements',
     'pyconcz_2017.common',
     'pyconcz_2017.team',
@@ -160,19 +158,13 @@ FORMAT_MODULE_PATH = [
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/2016/static/'
+STATIC_URL = '/2017/static/'
 STATIC_ROOT = os.path.join(TMP_DIR, 'static')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static_build')
+    os.path.join(BASE_DIR, 'static')
 ]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(TMP_DIR, 'media')
-
-WEBPACK_LOADER = {
-    'DEFAULT': {
-        'STATS_FILE': os.path.join(BASE_DIR, 'static_build', 'webpack-stats.json'),
-    }
-}
 
 SLACK_WEBHOOK = ''  # This variable is set in local.py

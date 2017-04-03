@@ -12,7 +12,6 @@ click==6.6                # via pip-tools
 cryptography==1.8.1       # via paramiko
 decorator==4.0.10         # via ipython, traitlets
 django-debug-toolbar==1.6
-django-webpack-loader==0.3.3
 Django==1.10.2            # via django-debug-toolbar
 fabric3==1.13.1.post1
 first==2.0.1              # via pip-tools

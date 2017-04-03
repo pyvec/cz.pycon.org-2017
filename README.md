@@ -6,12 +6,12 @@ PyCon CZ taking place in Prague for it's third edition.
 Contributing
 ------------
 
-PyCon CZ website is using Python 3.5/Django for the backend, NodeJS/webpack for
+PyCon CZ website is using Python 3.5/Django for the backend, NodeJS for
 bundling frontend assets and Postgresql as a database.
 
 ### Setup dev environment
 
-#### Manually
+#### Django
 
 Inside `pyconcz_2017` directory,
 run following commands to setup project for local development:
@@ -34,27 +34,46 @@ run following commands to setup project for local development:
 3.  `pip install -r requirements-dev.txt`
 4.	copy `pyconcz_2017/settings/local_template_dev.py` to `pyconcz_2017/settings/local.py`
 5.  `./manage.py migrate`
-6.  `./manage.py runserver --settings=pyconcz_2017.settings.local`
-7.  Open [http://localhost:8000]()
 
-For styles and javascript to work, you need to have `node.js`.
-Inside root directory (the same directory where `manage.py` is) run following commands:
 
-1.  Add following line to your `/etc/hosts` file: `127.0.0.1 lan.pycon.cz`.
-2.  `npm install`
-3.  `npm start`
+#### Static files
 
-If you are working on styles and JS, open [http://lan.pycon.cz:8000]() and you should have development version of
-website with webpack hot reloading enabled
+**You only need this if you work with styles or images**. 
+
+For styles and images processing to work, you need to have `node.js` and _gulp-cli_ installed globally (`sudo npm install gulp-cli -g`)
+
+Inside root directory (the same directory where `manage.py` is) run `npm install`
+
+
+### Development
+
+#### Django
+
+You can run your dev server manually on [http://localhost:8000]() with:
+
+`./manage.py runserver --settings=pyconcz_2017.settings.local`
+
+
+#### Static files
+
+To start development with static files being processed run `gulp`. It will also start dev server for you.
+
+Open [http://localhost:3000]() and you should see development version of website with automatic compiling and reloading.
+
+Everything in `/static/css` and `/static/img` is replaced with 
+processed content of `/static_src/css` and `/static_src/img` respectively.
+So don't edit anything inside `/static/css` and `/static/img` manually.
+
+Same would go for own JavaScript but we don’t have any.
+
 
 ### Building
 
-**You only need this when you changed styles**. Webpack creates static files with unique filenames (appending file hash). After
-each production build, you have to commit new files. Don't care about the old
-ones at the moment.
+After each production build, you have to commit newly generated CSS and image files.
+Old files are automatically replaced.
 
-1. `npm run build` (or `docker-compose run webpack npm run build` when using docker)
-2. `git add pyconcz_2017/static_build`
+1. `npm run build`
+2. `git add pyconcz_2017/static`
 
 
 ### Deployment
