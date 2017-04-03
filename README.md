@@ -32,10 +32,10 @@ run following commands to setup project for local development:
 
 2.  `python3 -m venv env`
 3.  `pip install -r requirements-dev.txt`
-4.	Change `DEBUG` to `True` in pyconcz_2017/settings/base.py
-4.  `./manage.py migrate`
-5.  `./manage.py runserver`
-6.  Open [http://localhost:8000]()
+4.	copy `pyconcz_2017/settings/local_template_dev.py` to `pyconcz_2017/settings/local.py`
+5.  `./manage.py migrate`
+6.  `./manage.py runserver --settings=pyconcz_2017.settings.local`
+7.  Open [http://localhost:8000]()
 
 For styles and javascript to work, you need to have `node.js`.
 Inside root directory (the same directory where `manage.py` is) run following commands:
