@@ -2,28 +2,25 @@
   $size: 16px;
   $baseline: vr-scale($size);
   $half-line: vr(.5, $baseline);
-
   display: inline-block;
   max-width: 14em;
   margin: $half-line 0 calc(#{$half-line} - 2px); // substract border
   padding: $half-line;
-
   color: white;
-  background-color: $main-color;
+  background-color: $color-main;
   border-radius: 2px;
   transition: background-color 0.3s, font-weight 0.3s;
-
   font-size: $size;
   line-height: $baseline;
   text-align: center;
 
   &:hover {
     color: white;
-    background-color: darken($main-color, 10%);
+    background-color: darken($color-main, 10%);
   }
   &:active {
     background-color: white;
-    color: darken($main-color, 10%);
+    color: darken($color-main, 10%);
   }
 }
 
@@ -50,8 +47,7 @@
     display: block;
     margin: vr(.5) 0 calc(#{vr(.5)} - 1px);
     float: left;
-
-    color: $font-color;
+    color: $color-text-base;
     font-family: $secondary-font;
   }
 
@@ -83,7 +79,7 @@
   textarea {
     width: 100%;
     height: 100%;
-    border: 1px solid $main-color;
+    border: 1px solid $color-main;
     outline: none;
   }
 
@@ -104,7 +100,7 @@
   &__errors {
     @extend %full-row;
     margin-left: $label-width;
-    color: $accent-color;
+    color: $color-accent;
     font-size: $font-small;
 
     ul {
@@ -142,15 +138,16 @@
     padding: vr(0.3) 25px;
     margin-bottom: calc(#{vr(0.4)} - 2px);
     border-radius: 2px;
-    background: $light-color;
-    border: solid 1px $main-color;
+    background: $color-light;
+    border: solid 1px $color-main;
     transition: background-color 0.3s, font-weight 0.3s;
 
     &:active {
       font-weight: 700;
     }
     &:hover {
-      background-color: $main-color;
+      background-color: $color-main;
+      color: $color-light;
     }
   }
 }

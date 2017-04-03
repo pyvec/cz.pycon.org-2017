@@ -19,3 +19,13 @@ body {
   // only for development
   //@include vr-grid;
 }
+
+::-moz-selection {
+  color: $color-light;
+  background-color: $color-main;
+}
+
+::selection {
+  color: $color-light;
+  background-color: $color-main;
+}

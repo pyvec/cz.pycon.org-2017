@@ -1,6 +1,5 @@
 .speaker {
   @include clearfix;
-
   max-width: 720px;
   min-height: 200px;
   margin: 1em auto;
@@ -40,7 +39,7 @@
       padding: 0;
       margin-bottom: 1em;
       overflow: hidden;
-      border: 1px solid $light-color;
+      border: 1px solid $color-light;
 
       img {
         display: block;
@@ -63,7 +62,7 @@
 }
 
 .speaker__name__link {
-  color: $font-color;
+  color: $color-text-base;
 }
 
 .speaker-dir__index {
