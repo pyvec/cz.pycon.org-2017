@@ -13,8 +13,8 @@ var exec = require('child_process').exec;
 
 
 function handleError(err){
-  console.log(err.toString())
-  process.exit(-1)
+  console.log(err.toString());
+  process.exit(-1);
 }
 
 
@@ -33,25 +33,25 @@ gulp.task('runserver', function(){
 
 // delete all previously generated CSS
 gulp.task('clean-css', function(){
-  return gulp.src('./pyconcz_2017/static/css/*', { read: false }).pipe(clean());
+  return gulp.src('./pyconcz_2017/static/css/', { read: false }).pipe(clean());
 });
 
 
 // delete all previously generated images
 gulp.task('clean-img', function(){
-  return gulp.src('./pyconcz_2017/static/img/*', { read: false }).pipe(clean());
+  return gulp.src('./pyconcz_2017/static/img/', { read: false }).pipe(clean());
 });
 
 
 // delete all previously generated JavaScript
-gulp.task('clean-css', function(){
-  return gulp.src('./pyconcz_2017/static/js/*', { read: false }).pipe(clean());
+gulp.task('clean-js', function(){
+  return gulp.src('./pyconcz_2017/static/js/', { read: false }).pipe(clean());
 });
 
 
 
 // copy images
-gulp.task('copy-images', ['clean-img'], function(){
+gulp.task('copy-img', ['clean-img'], function(){
   return gulp
     .src(['./pyconcz_2017/static_src/img/**/*'])
     .pipe(gulp.dest('./pyconcz_2017/static/img/'))
@@ -94,7 +94,7 @@ gulp.task('compile-css', ['clean-css'], function(){
 gulp.task('develop', ['build', 'runserver'], function(){
   browserSync.init({
     proxy: {
-      target: 'http://127.0.0.1:8000', // Django is running here
+      target: 'http://127.0.0.1:8000' // Django is running here
     },
     open: false,
     files: [
@@ -102,9 +102,9 @@ gulp.task('develop', ['build', 'runserver'], function(){
     ]
   });
   gulp.watch('./pyconcz_2017/static_src/scss/**/*.scss', ['compile-css']); // watcher for SCSS
-  gulp.watch('./pyconcz_2017/static_src/img/**/*', ['copy-images']); // watcher for images
+  gulp.watch('./pyconcz_2017/static_src/img/**/*', ['copy-img']); // watcher for images
 });
 
-gulp.task('build', ['compile-css', 'copy-images']); // build everything before deployment
+gulp.task('build', ['compile-css', 'copy-img']); // build everything before deployment
 
 gulp.task('default', ['develop']); // just run gulp to start development
