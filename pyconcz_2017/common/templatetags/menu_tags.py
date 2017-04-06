@@ -22,7 +22,7 @@ def show_menu(context):
                     'path': reverse('team_list'),
                     'title': 'Team'
                 }, {
-                    'path': reverse('financial-aid'),
+                    'path': reverse('proposal_form', kwargs=dict(key='financial-aid')),
                     'title': 'Financial Aid'
                 }, {
                     'path': reverse('about_code'),
