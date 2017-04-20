@@ -29,10 +29,10 @@ def show_menu(context):
                     'title': 'Code of Conduct'
                 },
             ]
-        }, {
-            'path': reverse('proposals'),
-            'title': 'Call for Papers',
-        }
+        }, #{
+        #    'path': reverse('proposals'),
+        #    'title': 'Call for Papers',
+        #}
     ]
 
     path = context['request'].path
