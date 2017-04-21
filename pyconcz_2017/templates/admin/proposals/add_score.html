@@ -24,7 +24,7 @@
     <dl>
 		<dt><h2>Talk</h2></dt>
         <dd><h3>{{ form.title.value }}</h3>
-			(<em>{{ form.language.value }},  {{ form.difficulty.value }}</em>)
+			(<em>{% if form.type.value or form.length.value%}{{ form.type.value }}, {{ form.length.value }}, {% endif %}{{ form.language.value }}, {{ form.difficulty.value }}</em>)
 			<p>{{ form.abstract.value|linebreaksbr }}</p>
 		</dd>
     </dl>
