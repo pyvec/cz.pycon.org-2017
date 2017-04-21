@@ -74,7 +74,7 @@ class EntryAdmin(admin.ModelAdmin):
 
         return [
             field.name for field in self.model._meta.get_fields()
-            if field.name not in ['id', 'rankings']
+            if field.name not in ['id', 'rankings', 'note']
         ]
 
     def get_urls(self):
