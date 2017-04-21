@@ -39,11 +39,10 @@
 		</dd>
     </dl>
 
-    <dl>
+	<dl>
 		<dt>Note</dt>
-        <dd>{{ form.note.value|linebreaksbr }}</dd>
+        <dd>{{ form.note.value|linebreaksbr|default:"--" }}</dd>
      </dl>
-
 
 	<small>accepted: {{ form.accepted.value|yesno }}, submitted: {{ form.date.value }}</small>
 
