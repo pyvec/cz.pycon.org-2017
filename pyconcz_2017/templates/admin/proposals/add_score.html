@@ -32,8 +32,8 @@
 	<dl>
 		<dt><h2>Author</h2></dt>
         <dd><strong>{{ form.full_name.value }}</strong>&nbsp; <a href="mailto:{{ form.email.value }}">{{ form.email.value }}</a>
-			{% if form.github.value %}gh: <a href="https://www.github.com/{{form.github.value}}"> {{ form.github.value }}</a> {% endif %}
-			{% if form.twitter.value %}tw: <a href="https://www.twitter.com/{{form.twitter.value}}">{{ form.twitter.value }}</a> {% endif %}
+			{% if form.github.value %}gh: <a href="https://www.github.com/{{form.github.value}}" target="_blank"> {{ form.github.value }}</a> {% endif %}
+			{% if form.twitter.value %}tw: <a href="https://www.twitter.com/{{form.twitter.value}}" target="_blank">{{ form.twitter.value }}</a> {% endif %}
 			photo: <a href="{{ MEDIA_URL }}{{ form.photo.value }}" target="_blank">show</a>
 				<p>{{ form.bio.value|linebreaksbr }}</p>
 		</dd>
