@@ -13,6 +13,7 @@ from pyconcz_2017.proposals.models import Ranking, Score, StdDev
 
 
 class ScoreForm(forms.ModelForm):
+
     class Meta:
         model = Score
         fields = ('value', 'note')
@@ -27,6 +28,7 @@ class EntryAdmin(admin.ModelAdmin):
     list_display_links = ['full_name']
     list_editable = ['accepted']
     list_filter = ['accepted']
+    search_fields = ['full_name', 'email', 'title', 'github', 'twitter', ]
 
     change_list_template = 'admin/proposals/change_list.html'
     change_form_template = 'admin/proposals/change_form.html'
@@ -59,10 +61,10 @@ class EntryAdmin(admin.ModelAdmin):
         )
         return (
             super().get_queryset(request)
-                .prefetch_related(scores)
-                .annotate(
-                    average=Avg('rankings__scores__value'),
-                    stddev=StdDev('rankings__scores__value')
+            .prefetch_related(scores)
+            .annotate(
+                average=Avg('rankings__scores__value'),
+                stddev=StdDev('rankings__scores__value')
             )
         )
 
@@ -101,8 +103,8 @@ class EntryAdmin(admin.ModelAdmin):
         ct = ContentType.objects.get_for_model(self.model)
         existing_ids = (
             Ranking.objects
-                .filter(content_type=ct)
-                .values_list('object_id', flat=True)
+            .filter(content_type=ct)
+            .values_list('object_id', flat=True)
         )
 
         proposals = (
@@ -125,8 +127,8 @@ class EntryAdmin(admin.ModelAdmin):
         obj = self.model.objects.get(id=object_id)
         score_instance = (
             obj.get_ranking().scores
-                .filter(user=request.user)
-                .first()
+            .filter(user=request.user)
+            .first()
         )
 
         if request.method.lower() == 'post':
@@ -156,11 +158,11 @@ class EntryAdmin(admin.ModelAdmin):
         ct = ContentType.objects.get_for_model(self.model)
         next_obj_id = (
             Ranking.objects
-                .filter(content_type=ct)
-                .exclude(scores__user=request.user)
-                .order_by('?')
-                .values_list('object_id', flat=True)
-                .first()
+            .filter(content_type=ct)
+            .exclude(scores__user=request.user)
+            .order_by('?')
+            .values_list('object_id', flat=True)
+            .first()
         )
 
         info = self.model._meta.app_label, self.model._meta.model_name
