@@ -19,20 +19,44 @@
 {% endif %}
 
 {% block content %}
-  <div id="content-main">
-    {% for field in form %}
-      <dl>
-        <dt>{{ field.label|capfirst }}</dt>
-        <dd>{{ field.value|linebreaksbr|default:"--" }}</dd>
-      </dl>
-    {% endfor %}
+	<div id="content-main">
+	
+    <dl>
+		<dt><h2>Talk</h2></dt>
+        <dd><h3>{{ form.title.value }}</h3>
+			(<em>{{ form.language.value }},  {{ form.difficulty.value }}</em>)
+			<p>{{ form.abstract.value }}</p>
+		</dd>
+    </dl>
 
-    <form action="" method="post" novalidate>
-      {% csrf_token %}
-      {{ score_form.as_p }}
-      <p>
-        <input type="submit" name="next" value="Save and go to next">
-      </p>
-    </form>
+	<dl>
+		<dt><h2>Author</h2></dt>
+        <dd><strong>{{ form.full_name.value }}</strong>&nbsp; <a href="mailto:{{ form.email.value }}">{{ form.email.value }}</a>
+			{% if form.github.value %}tw: <a href="https://www.github.com/{{form.github.value}}"> {{ form.github.value }}</a> {% endif %}
+			{% if form.twitter.value %}gh: <a href="https://www.twitter.com/{{form.twitter.value}}">{{ form.twitter.value }}</a> {% endif %}
+			photo: <a href="{{ MEDIA_URL }}{{ form.photo.value }}" target="_blank">show</a>
+				<p>{{ form.bio.value }}</p>
+		</dd>
+    </dl>
+
+    <dl>
+		<dt>Note</dt>
+        <dd>{{ form.note.value }}</dd>
+     </dl>
+
+
+	<small>accepted: {{ form.accepted.value|yesno }}, submitted: {{ form.date.value }}</small>
+
+	<p>
+		<hr/>
+		<h2>Your score</h2>
+		<form action="" method="post" novalidate>
+			{% csrf_token %}
+			{{ score_form.as_p }}
+			<p>
+				<input type="submit" name="next" value="Save and go to next">
+			</p>
+		</form>
+	</p>
   </div>
 {% endblock %}

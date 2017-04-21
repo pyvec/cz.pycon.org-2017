@@ -32,8 +32,8 @@ class Score(models.Model):
             MaxValueValidator(4)
         ]
     )
-    note = models.CharField(
-        default='', blank=True, max_length=255,
+    note = models.TextField(
+        default='', blank=True,
         help_text="Only you can see this"
     )
 
