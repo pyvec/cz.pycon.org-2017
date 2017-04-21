@@ -25,7 +25,7 @@
 		<dt><h2>Talk</h2></dt>
         <dd><h3>{{ form.title.value }}</h3>
 			(<em>{{ form.language.value }},  {{ form.difficulty.value }}</em>)
-			<p>{{ form.abstract.valuee|linebreaksbr }}</p>
+			<p>{{ form.abstract.value|linebreaksbr }}</p>
 		</dd>
     </dl>
 
@@ -35,13 +35,13 @@
 			{% if form.github.value %}tw: <a href="https://www.github.com/{{form.github.value}}"> {{ form.github.value }}</a> {% endif %}
 			{% if form.twitter.value %}gh: <a href="https://www.twitter.com/{{form.twitter.value}}">{{ form.twitter.value }}</a> {% endif %}
 			photo: <a href="{{ MEDIA_URL }}{{ form.photo.value }}" target="_blank">show</a>
-				<p>{{ form.bio.valuee|linebreaksbr }}</p>
+				<p>{{ form.bio.value|linebreaksbr }}</p>
 		</dd>
     </dl>
 
     <dl>
 		<dt>Note</dt>
-        <dd>{{ form.note.valuee|linebreaksbr }}</dd>
+        <dd>{{ form.note.value|linebreaksbr }}</dd>
      </dl>
 
 
