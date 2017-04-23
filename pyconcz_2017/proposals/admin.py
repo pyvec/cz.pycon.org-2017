@@ -56,8 +56,9 @@ class EntryAdmin(admin.ModelAdmin):
     stddev.admin_order_field = 'stddev'
 
     def common_note(self, obj):
-        return format_html('<span title="{}">{}&hellip;</span>',
-                           obj.note, obj.note[:10] if obj.note else '')
+        if obj.note:
+            return format_html('<span title="{}">{}&hellip;</span>',
+                               obj.note, obj.note[:10])
     common_note.admin_order_field = 'common_note'
 
     def get_queryset(self, request):
