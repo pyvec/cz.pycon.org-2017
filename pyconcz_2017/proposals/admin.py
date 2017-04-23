@@ -23,7 +23,8 @@ class EntryAdmin(admin.ModelAdmin):
     list_display = [
         'date', 'full_name', '__str__',
         'average', 'stddev',
-        'accepted', 'score', 'score_link'
+        'accepted', 'common_note',
+        'score', 'score_link',
     ]
     list_display_links = ['full_name']
     list_editable = ['accepted']
@@ -53,6 +54,11 @@ class EntryAdmin(admin.ModelAdmin):
     def stddev(self, obj):
         return obj.stddev and "{:.2f}".format(obj.stddev) or None
     stddev.admin_order_field = 'stddev'
+
+    def common_note(self, obj):
+        return format_html('<span title="{}">{}&hellip;</span>',
+                           obj.note, obj.note[:10] if obj.note else '')
+    common_note.admin_order_field = 'common_note'
 
     def get_queryset(self, request):
         scores = Prefetch(
