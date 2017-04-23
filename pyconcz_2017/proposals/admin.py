@@ -9,7 +9,7 @@ from django.shortcuts import redirect
 from django.template.response import TemplateResponse
 from django.utils.html import format_html
 
-from pyconcz_2017.proposals.models import Ranking, Score, StdDev
+from pyconcz_2017.proposals.models import Ranking, Score, StdDev, FinancialAid
 
 
 class ScoreForm(forms.ModelForm):
@@ -17,6 +17,26 @@ class ScoreForm(forms.ModelForm):
     class Meta:
         model = Score
         fields = ('value', 'note')
+
+
+class FinancialAidListFilter(admin.SimpleListFilter):
+    YES, NO = 'yes', 'no'
+    title = 'requested financial aid?'
+
+    # Parameter for the filter that will be used in the URL query.
+    parameter_name = 'faid'
+
+    def lookups(self, request, model_admin):
+        return (
+            (self.YES, self.YES),
+            (self.NO, self.NO),
+        )
+
+    def queryset(self, request, queryset):
+        if self.value() == self.YES:
+            return queryset.filter(email__in=FinancialAid.objects.all().values_list('email'))
+        if self.value() == self.NO:
+            return queryset.exclude(email__in=FinancialAid.objects.all().values_list('email'))
 
 
 class EntryAdmin(admin.ModelAdmin):
@@ -28,7 +48,7 @@ class EntryAdmin(admin.ModelAdmin):
     ]
     list_display_links = ['full_name']
     list_editable = ['accepted']
-    list_filter = ['accepted']
+    list_filter = ['accepted', FinancialAidListFilter, ]
     search_fields = ['full_name', 'email', 'title', 'github', 'twitter', ]
 
     change_list_template = 'admin/proposals/change_list.html'
