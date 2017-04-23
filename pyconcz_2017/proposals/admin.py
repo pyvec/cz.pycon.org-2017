@@ -21,7 +21,7 @@ class ScoreForm(forms.ModelForm):
 
 class EntryAdmin(admin.ModelAdmin):
     list_display = [
-        'date', 'full_name', '__str__',
+        'date_short', 'full_name', 'title',
         'average', 'stddev',
         'accepted', 'common_note',
         'score', 'score_link',
@@ -60,6 +60,11 @@ class EntryAdmin(admin.ModelAdmin):
             return format_html('<span title="{}">{}&hellip;</span>',
                                obj.note, obj.note[:10])
     common_note.admin_order_field = 'common_note'
+
+    def date_short(self, obj):
+        return obj.date.strftime('%d.%m. %H:%M')
+    date_short.admin_order_field = 'date_short'
+    date_short.short_description = 'date'
 
     def get_queryset(self, request):
         scores = Prefetch(
