@@ -29,17 +29,3 @@ body {
   color: $color-light;
   background-color: $color-main;
 }
-
-.changed {
-  background-color: #ffff74;
-  margin-top: 1em;
-
-  a { text-decoration: underline; }
-
-  &--small {
-    display: block;
-    font-size: $font-small;
-    background-color: #ffff74;
-    padding: .4em;
-  }
-}
