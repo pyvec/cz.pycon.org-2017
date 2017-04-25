@@ -166,6 +166,12 @@
 
 .tweets {
   @include clearfix;
+  font-size: $font-small;
+
+  p {
+    font-size: $font-normal;
+    margin-bottom: 0;
+  }
 }
 
 .keynoters {
