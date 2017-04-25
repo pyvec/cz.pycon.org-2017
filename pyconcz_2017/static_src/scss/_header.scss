@@ -42,109 +42,50 @@ header {
   }
 }
 
-.nav-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: white;
-  height: 108px;
-  padding: 0;
-  z-index: 10000;
-
-  &.--half {
-    height: 54px;
-  }
-
-  .container {
-    position: relative;
-  }
-}
-
 .nav {
-  position: absolute;
-  left: 0;
-  display: table;
   width: 100%;
-  table-layout: fixed;
 
   &__items {
-    display: table-row;
+    display: flex;
+    align-content: stretch;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
     margin: 0;
     padding: 0;
     $size: 16px;
     $baseline: vr-scale($size);
     font-size: $size;
-    line-height: 2*$baseline;
-
-    &.--level-2 {
-      display: none;
-      $size: 14px;
-      $baseline: vr-scale($size);
-      font-size: $size;
-      line-height: 2*$baseline;
-
-      .--selected & {
-        display: table-row;
-      }
-    }
   }
 
   &__item {
-    display: table-cell;
     list-style: none;
     text-align: center;
+    flex: auto;
 
     &__link {
       display: block;
+      padding: 1em 1em;
+      line-height: 1;
 
       .--level-1 & {
-        border-top: 5px solid white;
-        border-bottom: 1px solid $color-light;
 
         &:hover {
-          border-top: 5px solid white;
           text-decoration: underline;
         }
 
         &.--selected {
-          border-top: 5px solid $color-light;
-          border-bottom: 1px solid white;
-          border-left: 1px solid $color-light;
-          border-right: 1px solid $color-light;
+          font-weight: bold;
         }
       }
 
       .--level-2 & {
         border-bottom: 1px solid white;
-
-        &:hover {
-          text-decoration: none;
-          font-weight: bold;
-          border-top: 5px solid white;
-        }
-
-        &.--selected {
-          border-top: 5px solid white;
-          border-left: 1px solid white;
-          border-right: 1px solid white;
-          border-bottom: 1px solid white;
-          font-weight: bold;
-        }
       }
     }
 
     &.--icon {
       width: 50px;
-    }
-
-    &.--last {
-      width: 150px;
-      white-space: nowrap;
-
-      @media (min-width: $mobile-break) {
-        width: auto;
-      }
     }
   }
 }

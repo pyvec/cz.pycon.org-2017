@@ -36,9 +36,18 @@
   }
 }
 
-.homepage-basic,
+.homepage-row,
 .homepage-claim {
   @include clearfix;
+}
+
+.homepage-row {
+  display: flex;
+  align-content: stretch;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
+  margin: 0;
 }
 
 .homepage-claim {
@@ -50,19 +59,14 @@
   line-height: 1.4rem;
 }
 
-.homepage-venue {
-  text-align: center;
-  margin-top: vr(3);
-  margin-bottom: vr(3);
-}
-
 .homepage-column {
-  width: 30%;
-  float: left;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  flex: 1;
   text-align: center;
+  min-width: 11em;
 }
 
-.homepage-venue,
 .homepage-column {
 
   address {
@@ -76,9 +80,6 @@
   }
 
   @media (max-width: 992px) {
-    width: 100%;
-    float: none;
-
     .homepage-day-venue {
       margin: auto;
     }
@@ -246,5 +247,32 @@
   .announcement__date {
     font-family: "Roboto Mono", sans-serif;
     color: $color-muted;
+  }
+}
+
+.tito-wrapper {
+  &,
+  button {
+    font-family: $main-font !important;
+  }
+
+  .tito-ticket-name,
+  .tito-ticket-price-quantity-wrapper,
+  input {
+    font-family: $secondary-font !important;
+  }
+
+  .tito-ticket-description {
+    color: #555;
+  }
+
+  .tito-submit {
+    background-color: $color-main !important;
+    color: $color-light !important;
+    border-color: $color-main !important;
+
+    &:hover {
+      background-color: darken($color-main, 10%) !important;
+    }
   }
 }

@@ -11,29 +11,25 @@ footer {
 
   .nav-footer {
     @include clearfix;
-
     list-style: none;
-    padding-left: 15px;
-    line-height: 24px;
+    display: flex;
+    align-content: stretch;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
 
-    li {
-      list-style: none;
+    li { flex: auto; }
 
-      ul {
-        padding-left: 10px;
-      }
+    a {
+      display: block;
+      padding: 0.5em 1em 0.5em 0;
     }
   }
 
-  .nav-section {
-    width: 30%;
-    float: left;
-  }
 }
 
 .social-links {
-  padding: 10px;
-
   ul {
     list-style: none;
     padding: 0;

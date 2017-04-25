@@ -19,12 +19,10 @@
 
 {% block body %}
   <div class="homepage">
-    <div class="nav-fixed --half">
-      <div class="container">
-        <nav class="nav">
-          {% show_menu %}
-        </nav>
-      </div>
+    <div class="container">
+      <nav class="nav">
+        {% show_menu %}
+      </nav>
     </div>
     <div class="container">
       <div class="flex-row">
@@ -73,7 +71,8 @@
             <ul>
               {% comment %}<li><a href="#tickets">Tickets</a></li>{% endcomment %}
               <li><a href="/2017/about">About</a></li>
-              <li><a href="/2017/about/team">Team</a></li>
+              {% comment %}<li><a href="/2017/about/team">Team</a></li>{% endcomment %}
+              <li><a href="#tickets">Tickets</a></li>
               {% comment %}<li><a href="/2017/proposals/talks">Call for Papers</a></li>{% endcomment %}
               <li><a href="{% url "proposal_about" key="financial-aid" %}">Financial Aid</a></li>
               {% comment %}<li><a href="{% url "sponsors_offer"%}">Sponsorship</a></li>{% endcomment %}
@@ -94,16 +93,16 @@
       <h2 class="text-center">Prague, mother of all cities</h2>
       <div class="homepage-claim">
         <p>Welcome to <strong>Prague</strong>, one of the most beautiful capitals of Europe. You will surely
-        have a great time, whether you are only staying for the conference or you will take
-        a couple of days to look around.</p>
+          have a great time, whether you are only staying for the conference or you will take
+          a couple of days to look around.</p>
 
         <p>Endless touristy places, not one, but <strong>two castles</strong>, excellent food and drinks on
-        every corner, dozens of parks, 4th best ZOO in the world, a river and much more.
-        And of course, what better time to visit than <strong>summertime</strong>!</p>
+          every corner, dozens of parks, 4th best ZOO in the world, a river and much more.
+          And of course, what better time to visit than <strong>summertime</strong>!</p>
       </div>
 
-      <div class="homepage-basic">
-        <div class="homepage-column">
+      <div class="homepage-row">
+        <div class="homepage-column homepage-column-venue">
           <h3>
             <i class="fa fa-3x fa-map-marker" aria-hidden="true"></i>
             Venue
@@ -116,7 +115,8 @@
             <address>
               <strong>Meet Factory</strong><br>
               Ke Sklárně 3213/15<br>
-			  Praha 5 - Smíchov</address>
+              Praha 5 – Smíchov
+            </address>
           </div>
         </div>
 
