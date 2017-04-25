@@ -9,30 +9,32 @@ def show_menu(context):
     menu_items = [
         {
             'path': '/2017/',
-            'icon': 'fa-home',
-            'title': 'Homepage',
+            # 'icon': 'fa-home',
+            'title': 'Home',
         }, {
             'path': reverse('about'),
-            'title': 'Event',
-            'menu': [
-                {
-                    'path': reverse('about'),
-                    'title': 'About'
-                }, {
-                    'path': reverse('team_list'),
-                    'title': 'Team'
-                }, {
-                    'path': reverse('proposal_form', kwargs=dict(key='financial-aid')),
-                    'title': 'Financial Aid'
-                }, {
-                    'path': reverse('about_code'),
-                    'title': 'Code of Conduct'
-                },
-            ]
-        }, #{
+            'title': 'About'
+        }, {
+            'path': reverse('team_list'),
+            'title': 'Team'
+        }, {
+            'path': reverse('proposal_form', kwargs=dict(key='financial-aid')),
+            'title': 'Financial Aid'
+        }, {
+            'path': reverse('about_code'),
+            'title': 'Code of Conduct'
+        },
+
+        # {
+        # 'path': reverse('about'),
+        # 'title': 'Event',
+        # 'menu': [
+        #
+        # ]
+        # }, #{
         #    'path': reverse('proposals'),
         #    'title': 'Call for Papers',
-        #}
+        # }
     ]
 
     path = context['request'].path

@@ -1,5 +1,4 @@
 body {
-  margin-top: $top-offset;
   color: $color-text-base;
   font-family: $main-font;
 }
@@ -9,8 +8,8 @@ body {
   display: block;
   position: relative;
   width: 0;
-  height: $top-offset;
-  margin-top: -$top-offset;
+  /*  height: $top-offset;
+    margin-top: -$top-offset;*/
 }
 
 .homepage {
@@ -39,7 +38,7 @@ body {
   }
 }
 
-@mixin heading($size, $top: 2, $bottom: 1) {
+@mixin heading($size, $top: 2, $bottom: 0.5) {
   $baseline: vr-scale($size);
   font-size: $size;
   font-family: $secondary-font;
@@ -115,6 +114,8 @@ h2 > small {
 .text-block {
   margin: vr(1) auto;
   max-width: 50em;
+
+  a { text-decoration: underline; }
 }
 
 // hanging bullets

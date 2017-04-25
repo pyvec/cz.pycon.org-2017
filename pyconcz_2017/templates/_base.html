@@ -40,14 +40,11 @@
 <body>
 {% block body %}
   <header>
-    <div class="nav-fixed">
-      <div class="container">
-        <nav class="nav">
-          {% show_menu %}
-        </nav>
-      </div>
+    <div class="container">
+      <nav class="nav">
+        {% show_menu %}
+      </nav>
     </div>
-
     <div class="container">
       <a href="{% url "homepage" %}" class="pyconlogo"><img src="{% static "img/pyconlogo.svg" %}" alt="PyCon CZ"></a>
       <h2 class="header-title">PyCon CZ 2017 Prague <br> 8-10 June</h2>
@@ -63,21 +60,14 @@
   <div class="container text-block">
     <nav>
       <ul class="nav-footer">
-        <li class="nav-section">
-          <a href="{% url "about" %}" class="nav-title">About</a>
+        <li class="nav-section"><a href="{% url "about" %}" class="nav-title">About</a></li>
+        <li><a href="{% url "team_list" %}">Team</a></li>
+        <li><a href="{% url "proposals" %}financial-aid">Financial Aid</a></li>
+        <li><a href="{% url "homepage" %}#tickets">Tickets</a></li>
+        {% comment %}<li><a href="{% url "sponsors_offer" %}">Sponsorship</a></li>{% endcomment %}
+        <li><a href="{% url "about_code" %}">Code of Conduct</a></li>
 
-          <ul>
-            <li><a href="{% url "team_list" %}">Team</a></li>
-			<li><a href="{% url "proposals" %}financial-aid">Financial Aid</a></li>
-            {% comment %}<li><a href="{% url "homepage" %}#tickets">Tickets</a></li>{% endcomment %}
-            {% comment %}<li><a href="{% url "sponsors_offer" %}">Sponsorship</a></li>{% endcomment %}
-            <li class="nav-highlight">
-              <a href="{% url "about_code" %}">Code of Conduct</a>
-            </li>
-          </ul>
-        </li>
-
-		{% comment %}
+        {% comment %}
         <li class="nav-section">
           <a href="/2017/proposals/talks">Call for Papers</a>
 
@@ -86,7 +76,7 @@
             <li><a href="/2017/proposals/workshops/form">Workshops</a></li>
           </ul>
         </li>
-		{% endcomment %}
+    		{% endcomment %}
 
         {% comment %}
         <li class="nav-section">
@@ -147,20 +137,20 @@
 
 {% if not debug %}
   <script>
-	  (function(i, s, o, g, r, a, m){
-		  i['GoogleAnalyticsObject'] = r;
-		  i[r] = i[r] || function(){
-				  (i[r].q = i[r].q || []).push(arguments)
-			  }, i[r].l = 1 * new Date();
-		  a = s.createElement(o),
-			  m = s.getElementsByTagName(o)[0];
-		  a.async = 1;
-		  a.src = g;
-		  m.parentNode.insertBefore(a, m)
-	  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    (function(i, s, o, g, r, a, m){
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function(){
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-	  ga('create', 'UA-81705668-1', 'auto');
-	  ga('send', 'pageview');
+    ga('create', 'UA-81705668-1', 'auto');
+    ga('send', 'pageview');
   </script>
 {% endif %}
 {% block js_extra %}{% endblock %}
