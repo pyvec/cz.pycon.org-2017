@@ -1,6 +1,6 @@
 Dear {{ first_name }}!
 
-Congratulations, your talk "{{ title }}" have been accepted for PyCon CZ 2017!
+Congratulations, your talk "{{ title }}" has been accepted for PyCon CZ 2017!
 
 Please take note that the programme of the event has changed a bit: talks will take place on Thursday 8th and Friday 9th June, with workshops on Saturday 10th June.
 
