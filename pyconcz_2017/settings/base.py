@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.staticfiles',
 
+    'import_export',
+
     'pyconcz_2017.announcements',
     'pyconcz_2017.common',
     'pyconcz_2017.team',

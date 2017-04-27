@@ -1,4 +1,5 @@
 Django
 Pillow
 psycopg2
-pytz
+pyt
+django-import-export
