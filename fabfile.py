@@ -14,12 +14,14 @@ env.hosts = []
 def production():
     env.hosts = ['app@alpha-node-5.rosti.cz:12768']
     env.environment = 'production'
+    env.branch = 'master'
 
 
 @task
 def beta():
     env.hosts = ['app@alpha-node-6.rosti.cz:13128']
     env.environment = 'beta'
+    env.branch = 'beta'
 
 
 def restart():
@@ -37,7 +39,7 @@ def pip(payload):
 @task
 def deploy():
     with cd(PROJECT_ROOT):
-        run('git pull origin master')
+        run('git pull origin %s' % env.branch)
         pip('install -r requirements.txt')
         managepy('migrate')
         managepy('collectstatic --no-input --link')
