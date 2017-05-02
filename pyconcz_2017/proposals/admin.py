@@ -1,3 +1,6 @@
+from import_export import resources
+from import_export.admin import ImportExportActionModelAdmin
+
 from django import forms
 from django.conf.urls import url
 from django.contrib import admin
@@ -9,7 +12,7 @@ from django.shortcuts import redirect
 from django.template.response import TemplateResponse
 from django.utils.html import format_html
 
-from pyconcz_2017.proposals.models import Ranking, Score, StdDev, FinancialAid
+from pyconcz_2017.proposals.models import Ranking, Score, StdDev, FinancialAid, Talk, Workshop
 
 
 class ScoreForm(forms.ModelForm):
@@ -39,7 +42,9 @@ class FinancialAidListFilter(admin.SimpleListFilter):
             return queryset.exclude(email__in=FinancialAid.objects.all().values_list('email'))
 
 
-class EntryAdmin(admin.ModelAdmin):
+class EntryAdmin(ImportExportActionModelAdmin):
+    abstract = True
+
     list_display = [
         'date_short', 'full_name', 'title',
         'average', 'stddev',
@@ -48,7 +53,7 @@ class EntryAdmin(admin.ModelAdmin):
     ]
     list_display_links = ['full_name']
     list_editable = ['accepted']
-    list_filter = ['accepted', FinancialAidListFilter, ]
+    list_filter = ['accepted']
     search_fields = ['full_name', 'email', 'title', 'github', 'twitter', ]
 
     change_list_template = 'admin/proposals/change_list.html'
@@ -206,3 +211,55 @@ class EntryAdmin(admin.ModelAdmin):
         else:
             messages.success(request, 'All your work here is done!')
             return redirect('admin:%s_%s_changelist' % info)
+
+
+class TalkResource(resources.ModelResource):
+
+    class Meta:
+        model = Talk
+        fields = export_order = (
+            'full_name', 'title',
+            'email', 'github', 'twitter',
+            'language', 'difficulty',
+            'accepted',
+        )
+
+
+class WorkshopResource(resources.ModelResource):
+
+    class Meta:
+        model = Workshop
+        fields = export_order = (
+            'full_name', 'title',
+            'email', 'github', 'twitter',
+            'language', 'difficulty',
+            'accepted',
+        )
+
+
+class FinancialAidResource(resources.ModelResource):
+
+    class Meta:
+        model = FinancialAid
+        fields = export_order = (
+            'full_name', 'email', 'amount', 'accepted',
+        )
+
+
+class TalkAdmin(EntryAdmin):
+    list_filter = ['accepted', FinancialAidListFilter, ]
+    resource_class = TalkResource
+
+
+class WorkshopAdmin(EntryAdmin):
+    list_filter = ['accepted', FinancialAidListFilter, ]
+    resource_class = WorkshopResource
+
+
+class FinancialAidAdmin(EntryAdmin):
+    resource_class = FinancialAidResource
+
+
+admin.site.register(Talk, TalkAdmin)
+admin.site.register(Workshop, WorkshopAdmin)
+admin.site.register(FinancialAid, FinancialAidAdmin)
