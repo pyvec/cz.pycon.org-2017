@@ -180,72 +180,75 @@
 }
 
 .keynoters {
-  vertical-align: top;
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
 
-  .keynoter {
-    display: inline-block;
-    max-width: 49%;
-    text-align: center;
-    vertical-align: top;
-    padding: 0 15px;
+  &__keynoter {
+    margin-bottom: 2em;
+    margin-left: .5em;
+    margin-right: .5em;
 
-    @media (max-width: $container-lg) {
-      max-width: 100%;
-      text-align: left;
-      margin: 20px auto;
-    }
-    @media (max-width: $container-sm) {
-      text-align: center;
+    @media (min-width: 540px) {
+      margin-bottom: 2.5em;
+      margin-left: 15%;
+      margin-right: 15%;
     }
 
-    img {
-      height: 300px;
-      width: 300px;
-      border-radius: 50%;
-      filter: gray; /* IE6-9 */
-      filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
-      -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
-
-      @media (max-width: $container-lg) {
-        float: left;
-        display: inline-block;
-        margin-right: 20px;
-      }
-      @media (max-width: $container-sm) {
-        float: none;
-        margin: 0;
-      }
+    @media (min-width: 768px) {
+      margin-bottom: 3em;
+      $margin-side: 1.5em;
+      margin-left: $margin-side;
+      margin-right: $margin-side;
+      flex: 1 1 calc(50% - #{2*$margin-side});
+      max-width: calc(50% - #{2*$margin-side});
     }
 
-    .bio {
-      text-align: justify;
-
-      &:nth-child(3n + 1) {
-        margin-top: 48px;
-      }
-
-      &:nth-child(3n + 3) {
-        margin-top: 96px;
-      }
-
-      @media (max-width: $container-lg) {
-        display: inline;
-      }
-
-      @media (max-width: $container-sm) {
-        &.p {
-          display: block;
-          margin-top: auto;
-        }
-      }
-
+    @media (min-width: 992px) {
+      $margin-side: 2em;
+      margin-left: $margin-side;
+      margin-right: $margin-side;
+      flex: 1 1 calc(50% - #{2*$margin-side});
+      max-width: calc(50% - #{2*$margin-side});
     }
   }
 
-  h4 {
-    @media (max-width: $container-sm) {
-      margin-top: 15px;
+  &__photo {
+    $photo-width: 100%;
+    width: $photo-width;
+    padding-bottom: $photo-width;
+    height: 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: 50%;
+    filter: grayscale(1);
+
+    @media screen and (min-width: 350px) {
+      $photo-width: 300px;
+      width: $photo-width;
+      padding-bottom: $photo-width;
+    }
+
+  }
+
+  &__name {
+    margin-top: 1em;
+    text-align: center;
+  }
+
+  &__twitter {
+    display: block;
+    text-align: center;
+  }
+
+  &__bio {
+    margin-top: 1em;
+
+    @media screen and (min-width: 380px) {
+      text-align: justify;
     }
   }
 }

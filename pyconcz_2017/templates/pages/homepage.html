@@ -65,7 +65,7 @@
         <div class="main-column-2">
           <h1 class="header-title">
             PyCon&nbsp;CZ 2017 Prague
-              8&#8209;10&nbsp;June
+            8&#8209;10&nbsp;June
             <span class="changed changed--small">
               PyCon CZ starts a day earlier than initially announced. <a href="http://blog.python.cz/pycon-cz-2017-changes-date-and-venue">read&nbsp;more</a>
             </span>
@@ -150,17 +150,14 @@
         </div>
       </div>
 
+      <h1 class="text-center">Keynote speakers</h1>
       <div class="keynoters">
-        <h1 class="text-center">Keynote speakers</h1>
-
         {% for keynoter in keynoters %}
-          <div class="keynoter">
-            <img src="{{ keynoter.photo.url }}" alt="{{ keynoter.full_name }}">
-            <h4>{{ keynoter.full_name }}</h4>
-            <a href="http://twitter.com/{{ keynoter.twitter }}">@{{ keynoter.twitter }}</a>
-            <p class="bio">
-              {{ keynoter.bio }}
-            </p>
+          <div class="keynoters__keynoter">
+            <div class="keynoters__photo" style="background-image: url({{ keynoter.photo.url }});"></div>
+            <h4 class="keynoters__name">{{ keynoter.full_name }}</h4>
+            <a class="keynoters__twitter" href="http://twitter.com/{{ keynoter.twitter }}">@{{ keynoter.twitter }}</a>
+            <p class="keynoters__bio">{{ keynoter.bio }}</p>
           </div>
         {% endfor %}
       </div>
