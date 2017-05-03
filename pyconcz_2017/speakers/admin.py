@@ -28,7 +28,7 @@ class SpeakerResource(resources.ModelResource):
 
 
 class SpeakerAdmin(ImportExportActionModelAdmin):
-    list_display = ['full_name', 'get_talks', 'get_workshops', 'keynote']
+    list_display = ['full_name', 'get_talks', 'get_workshops', 'keynote', 'display_position']
     list_filter = ['keynote', ]
     search_fields = ['full_name', 'email', 'github', 'twitter', ]
     resource_class = SpeakerResource

@@ -20,6 +20,11 @@ class Speaker(models.Model):
     workshops = models.ManyToManyField(
         'Workshop', blank=True, related_name='workshops')
 
+    display_position = models.PositiveSmallIntegerField(default=0, help_text='sort order on frontend displays')
+
+    class Meta:
+        ordering = ('display_position', 'full_name',)
+
     def __str__(self):
         return self.full_name
 
