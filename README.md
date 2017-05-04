@@ -1,7 +1,7 @@
 PyConCZ 2017
 ============
 
-PyCon CZ taking place in Prague for it's third edition.
+PyCon CZ taking place in Prague for its third edition.
 
 Contributing
 ------------
