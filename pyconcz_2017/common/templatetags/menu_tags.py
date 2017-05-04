@@ -17,6 +17,10 @@ def show_menu(context):
         }, {
             'path': reverse('team_list'),
             'title': 'Team'
+        },
+        {
+            'path': reverse('sponsors_list'),
+            'title': 'Sponsors'
         }, {
             'path': reverse('proposal_form', kwargs=dict(key='financial-aid')),
             'title': 'Financial Aid'
