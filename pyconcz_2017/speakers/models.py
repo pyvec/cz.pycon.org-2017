@@ -21,6 +21,7 @@ class Speaker(models.Model):
         'Workshop', blank=True, related_name='workshops')
 
     display_position = models.PositiveSmallIntegerField(default=0, help_text='sort order on frontend displays')
+    is_public = models.BooleanField(default=True)
 
     class Meta:
         ordering = ('display_position', 'full_name',)
