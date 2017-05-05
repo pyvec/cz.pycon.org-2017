@@ -10,6 +10,7 @@ class Sponsor(models.Model):
         (5, 'Diversity'),
         (6, 'Media'),
         (7, 'Partners'),
+        (8, 'Coffee sponsor'),
     )
 
     level = models.PositiveSmallIntegerField(choices=LEVEL, default=3)
