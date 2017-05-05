@@ -6,14 +6,13 @@ from django.db.models import IntegerField
 from django.db.models import Q
 from django.db.models import Value
 from django.db.models import When
-from django.template import RequestContext
 from django.template.response import TemplateResponse
 
 from pyconcz_2017.speakers.models import Speaker, Slot, EndTime
 
 
 def speakers_list(request, type):
-    speakers = (Speaker.objects.all()
+    speakers = (Speaker.objects.filter(is_public=True)
                 .exclude(**{type: None})
                 .prefetch_related(type)
                 .order_by('full_name'))
@@ -58,6 +57,7 @@ def _prefetch_generic(ct):
         )
         .order_by('date', 'order')
     )
+
 
 def schedule(request):
     slots = chain(
