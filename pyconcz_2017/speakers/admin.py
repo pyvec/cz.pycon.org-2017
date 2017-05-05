@@ -43,7 +43,17 @@ class SpeakerAdmin(ImportExportActionModelAdmin):
     get_workshops.short_description = 'workshops'
 
 
+class TalkAdmin(ImportExportActionModelAdmin):
+    list_display = ['title', 'language', 'difficulty', ]
+    search_fields = ['title', ]
+
+
+class WorkshopAdmin(ImportExportActionModelAdmin):
+    list_display = ['title', 'language', 'difficulty', ]
+    search_fields = ['title', ]
+
+
 admin.site.register(Speaker, SpeakerAdmin)
-admin.site.register(Talk)
-admin.site.register(Workshop)
+admin.site.register(Talk, TalkAdmin)
+admin.site.register(Workshop, WorkshopAdmin)
 admin.site.register(Slot, SlotAdmin)
