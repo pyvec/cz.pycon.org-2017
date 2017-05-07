@@ -11,7 +11,7 @@
 {% block speakers_items %}
   {% for talk in speaker.talks.all %}
     <span class="talk-title">
-      {{ talk.title }}
+      {{ talk.title }} <span class="talk-difficulty"><small> [{{ talk.difficulty }}]</small></span>
     </span>
     <p class="talk-description">{{ talk.abstract|linebreaksbr }}</p>
   {% endfor %}
