@@ -53,7 +53,10 @@ class TalkAdmin(ImportExportActionModelAdmin):
 
 
 class WorkshopAdmin(TalkAdmin):
-    pass
+
+    def speakers(self, obj):
+        return ','.join(map(str, obj.workshops.all()))
+    speakers.short_description = 'speakers'
 
 admin.site.register(Speaker, SpeakerAdmin)
 admin.site.register(Talk, TalkAdmin)
