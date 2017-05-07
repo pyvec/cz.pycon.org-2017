@@ -1,5 +1,5 @@
 {% extends "speakers/base_list.html" %}
-
+{% load formatting %}
 
 
 {% block meta_title %}PyCon CZ Workshops{% endblock %}
@@ -10,7 +10,7 @@
 
 {% block speakers_items %}
   {% for workshop in speaker.workshops.all %}
-    <span class="talk-title">{{ workshop.title }}</span>
-    <p class="talk-description">{{ workshop.abstract|linebreaksbr }}</p>
+    <span class="talk-title">{{ workshop.title }}<span class="talk-difficulty"><small> [{{ workshop.difficulty }}]</small></span>
+    <p class="talk-description">{{ workshop.abstract|markdown }}</p>
   {% endfor %}
 {% endblock %}
