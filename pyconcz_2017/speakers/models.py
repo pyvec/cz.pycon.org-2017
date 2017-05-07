@@ -57,6 +57,10 @@ class Talk(models.Model):
     def __str__(self):
         return self.title
 
+    @property
+    def speakers(self):
+        return self.talks.all()
+
 
 class Workshop(models.Model):
     DIFFICULTY = (
@@ -101,6 +105,10 @@ class Workshop(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def speakers(self):
+        return self.workshops.all()
 
 
 class Slot(models.Model):

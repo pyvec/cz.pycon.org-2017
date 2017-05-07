@@ -11,6 +11,7 @@
 {% block speakers_items %}
   {% for workshop in speaker.workshops.all %}
     <span class="talk-title">{{ workshop.title }}<span class="talk-difficulty"><small> [{{ workshop.difficulty }}]</small></span>
-    <p class="talk-description">{{ workshop.abstract|markdown }}</p>
+		<p class="talk-description">{{ workshop.abstract|markdown }}</p>
+		<a href="{% url 'talk_detail' type='workshop' talk_id=workshop.id %}">detail</a>
   {% endfor %}
 {% endblock %}
