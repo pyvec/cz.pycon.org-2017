@@ -51,6 +51,9 @@ class Talk(models.Model):
         max_length=10, choices=DIFFICULTY, default='beginner',
     )
 
+    class Meta:
+        ordering = ('title',)
+
     def __str__(self):
         return self.title
 

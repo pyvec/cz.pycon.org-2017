@@ -44,14 +44,16 @@ class SpeakerAdmin(ImportExportActionModelAdmin):
 
 
 class TalkAdmin(ImportExportActionModelAdmin):
-    list_display = ['title', 'language', 'difficulty', ]
+    list_display = ['title', 'speakers', 'language', 'difficulty', ]
     search_fields = ['title', ]
 
+    def speakers(self, obj):
+        return ','.join(map(str, obj.talks.all()))
+    speakers.short_description = 'speakers'
 
-class WorkshopAdmin(ImportExportActionModelAdmin):
-    list_display = ['title', 'language', 'difficulty', ]
-    search_fields = ['title', ]
 
+class WorkshopAdmin(TalkAdmin):
+    pass
 
 admin.site.register(Speaker, SpeakerAdmin)
 admin.site.register(Talk, TalkAdmin)
