@@ -1,5 +1,4 @@
 {% load static %}
-{% load menu_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,11 +37,12 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:400,700" rel="stylesheet">
 </head>
 <body>
+
 {% block body %}
   <header>
     <div class="container">
       <nav class="nav">
-        {% show_menu %}
+        {% include '_menu_top.html' %}
       </nav>
     </div>
     <div class="container">
@@ -51,21 +51,22 @@
     </div>
   </header>
 
-  {% block content %}
+  {% block content %}{% endblock %}
 
-  {% endblock %}
 {% endblock %}
 
 <footer>
   <div class="container text-block">
     <nav>
       <ul class="nav-footer">
-        <li class="nav-section"><a href="{% url "about" %}" class="nav-title">About</a></li>
-        <li><a href="{% url "team_list" %}">Team</a></li>
-        <li><a href="{% url "proposals" %}financial-aid">Financial Aid</a></li>
-        <li><a href="{% url "homepage" %}#tickets">Tickets</a></li>
+        {% include '_menu_footer.html' %}
+
+        {% comment %}<li class="nav-section"><a href="{% url "about" %}" class="nav-title">About</a></li>{% endcomment %}
+        {% comment %}<li><a href="{% url "team_list" %}">Team</a></li>{% endcomment %}
+        {% comment %}<li><a href="{% url "proposals" %}financial-aid">Financial Aid</a></li>{% endcomment %}
+        {% comment %}<li><a href="{% url "homepage" %}#tickets">Tickets</a></li>{% endcomment %}
         {% comment %}<li><a href="{% url "sponsors_offer" %}">Sponsorship</a></li>{% endcomment %}
-        <li><a href="{% url "about_code" %}">Code of Conduct</a></li>
+        {% comment %}<li><a href="{% url "about_code" %}">Code of Conduct</a></li>{% endcomment %}
 
         {% comment %}
         <li class="nav-section">
@@ -155,6 +156,7 @@
   </script>
 {% endif %}
 {% block js_extra %}{% endblock %}
+
 <script async defer src="https://use.fontawesome.com/c0f5df5d14.js"></script>
 </body>
 </html>
