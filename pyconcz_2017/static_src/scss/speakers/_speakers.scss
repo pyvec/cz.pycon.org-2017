@@ -4,9 +4,7 @@
   min-height: 200px;
   margin: 1em auto;
 
-  p {
-    margin-top: 0;
-  }
+  p { margin-top: 0; }
 
   &__name {
     margin-top: 1em;
@@ -20,9 +18,7 @@
       font-weight: normal;
     }
 
-    .bio {
-      font-style: italic;
-    }
+    .bio { font-style: italic; }
 
     @media (min-width: $mobile-break) {
       float: right;
@@ -36,10 +32,12 @@
 
     .portrait {
       width: 120px;
+      height: 0;
       padding: 0;
+      padding-bottom: 120px;
       margin-bottom: 1em;
       overflow: hidden;
-      border: 1px solid $color-light;
+      border-radius: 50%;
 
       img {
         display: block;
@@ -61,9 +59,7 @@
   }
 }
 
-.speaker__name__link {
-  color: $color-text-base;
-}
+.speaker__name__link { color: $color-text-base; }
 
 .speaker-dir__index {
   list-style: none;

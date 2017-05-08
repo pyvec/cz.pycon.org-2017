@@ -1,5 +1,78 @@
+{% extends "_base.html" %}
+
 {% load formatting %}
 
-{{ talk.title }}
-{{ talk.abstract|markdown }}
-{{ talk.speakers }}
+
+{% block content %}
+  <main class="pc_container" role="main" id="main">
+
+    <section class="pc_talk">
+      <h1 class="pc_talk__name">{{ talk.speakers|join:', ' }}:<br> {{ talk.title }}</h1>
+
+      <div class="pc_talk__description">{{ talk.abstract|markdown }}</div>
+
+      {% if talk.difficulty == 'advanced' %}
+        <p class="pc_talk__difficulty">We don't recommend this talk to&nbsp;begginers.</p>
+      {% endif %}
+    </section>
+
+    <section class="pc_speakers">
+      {% for speaker in talk.speakers %}
+        <section class="pc_speaker">
+
+          <div class="pc_speaker__photo" style="background-image: url({{ speaker.photo.url }});"></div>
+
+          <h3 class="pc_speaker__name" {% comment %}{% ifchanged %}id="{{ index_letter }}"{% endifchanged %}{% endcomment %}>
+            {{ speaker.full_name }}
+            {% comment %}<a href="#{{ speaker.full_name|slugify }}" name="{{ speaker.full_name|slugify }}" class="speaker__name__link"> </a>{% endcomment %}
+          </h3>
+
+          {% if speaker.github %}
+            <a class="pc_speaker__github" href="https://github.com/{{ speaker.github }}">
+              <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> {{ speaker.github }}
+            </a>
+          {% endif %}
+
+          {% if speaker.twitter %}
+            <a class="pc_speaker__twitter" href="https://twitter.com/{{ speaker.twitter }}">
+              <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> {{ speaker.twitter }}
+            </a>
+          {% endif %}
+
+          <div class="pc_speaker__bio">{{ speaker.bio|markdown }}</div>
+
+          {% if speaker.talks.all|length > 1 %}
+            <h4>Other talks by {{ speaker.full_name }}</h4>
+          {% endif %}
+
+          {% for talk_other in speaker.talks.all %}
+            {% if talk_other.id != talk.id %}
+              <h4 class="pc_talk__name">
+                <a href="{% url 'talk_detail' type='talk' talk_id=talk_other.id %}#main">
+                  {{ talk_other.title }}
+                </a>
+              </h4>
+            {% endif %}
+          {% endfor %}
+
+          {% if speaker.workshops.all %}
+            <h4>Workshop{{ speaker.workshops.all|pluralize }} by the same speaker</h4>
+          {% endif %}
+
+          {% for workshop in speaker.workshops.all %}
+            <pre>{{ workshop }}</pre>
+          {% endfor %}
+
+        </section>
+      {% endfor %}
+    </section>
+
+
+    {% with talk.speakers|first as speaker %}
+      <p class="pc_nav">
+        <a href="{% url "speakers_list" type='talks' %}#{{ speaker.full_name|slugify }}">All speakers and talks</a>
+      </p>
+    {% endwith %}
+
+  </main>
+{% endblock %}
