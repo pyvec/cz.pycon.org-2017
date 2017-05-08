@@ -84,6 +84,14 @@
     color: $color-main;
   }
 
+  a {
+    font-family: inherit;
+  }
+
+  p a {
+    text-decoration: underline;
+  }
+
   @media (max-width: 992px) {
     .homepage-day-venue {
       margin: auto;

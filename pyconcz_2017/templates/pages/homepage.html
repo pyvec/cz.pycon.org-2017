@@ -2,7 +2,6 @@
 
 {% load static %}
 {% load sponsors_tags %}
-{% load menu_tags %}
 
 
 
@@ -21,7 +20,7 @@
   <div class="homepage">
     <div class="container">
       <nav class="nav">
-        {% show_menu %}
+        {% include '_menu_top_homepage.html' %}
       </nav>
     </div>
     <div class="container">
@@ -73,13 +72,14 @@
           </h1>
           <nav class="nav-main">
             <ul>
-              {% comment %}<li><a href="#tickets">Tickets</a></li>{% endcomment %}
               <li><a href="/2017/about">About</a></li>
-              {% comment %}<li><a href="/2017/about/team">Team</a></li>{% endcomment %}
               <li><a href="#tickets">Tickets</a></li>
-              {% comment %}<li><a href="/2017/proposals/talks">Call for Papers</a></li>{% endcomment %}
-              <li><a href="{% url "proposal_about" key="financial-aid" %}">Financial Aid</a></li>
+              <li><a href="{% url 'speakers_list' type='talks' %}">Programme</a></li>
+              {% comment %}<li><a href="{% url 'speakers_list' type='workshops' %}">Workshops</a></li>{% endcomment %}
+              {% comment %}<li><a href="/2017/about/team">Team</a></li>{% endcomment %}
+              {% comment %}<li><a href="{% url "proposal_about" key="financial-aid" %}">Financial Aid</a></li>{% endcomment %}
               {% comment %}<li><a href="{% url "sponsors_offer"%}">Sponsorship</a></li>{% endcomment %}
+              {% comment %}<li><a href="/2017/proposals/talks">Call for Papers</a></li>{% endcomment %}
               <li><a href="/2017/about/code">Code of Conduct</a></li>
             </ul>
           </nav>
@@ -127,25 +127,30 @@
         <div class="homepage-column">
           <h3>
             <i class="fa fa-3x fa-commenting-o" aria-hidden="true"></i>
-            Talks
-            <small class="homepage-day-date">8-9 June</small>
+            <a href="{% url 'speakers_list' type='talks' %}">
+              Talks
+              <small class="homepage-day-date">8-9 June</small>
+            </a>
           </h3>
           <p class="homepage-day-venue">
             <strong>Two days</strong>, <strong>two</strong> parallel tracks,
-            <strong>four</strong> keynotes and <strong>25+</strong> awesome talks.
+            <strong>four</strong> keynotes and <strong>25+</strong>
+            <a href="{% url 'speakers_list' type='talks' %}">awesome talks</a>.
           </p>
         </div>
 
         <div class="homepage-column">
           <h3>
             <i class="fa fa-3x fa-cogs" aria-hidden="true"></i>
-            Workshops
-            <small class="homepage-day-date">10 June</small>
+            <a href="{% url 'speakers_list' type='workshops' %}">
+              Workshops
+              <small class="homepage-day-date">10 June</small>
+            </a>
           </h3>
           <p class="homepage-day-venue">
-            <strong>Nine</strong> workshops in two blocks and sprinting <strong>all day
-            long</strong>. Hack on open-source projects together with other Python
-            community members.
+            <strong>Nine</strong> <a href="{% url 'speakers_list' type='workshops' %}">workshops</a>
+            in two blocks and sprinting <strong>all day long</strong>.
+            Hack on open-source projects together with other Python community members.
           </p>
         </div>
       </div>
