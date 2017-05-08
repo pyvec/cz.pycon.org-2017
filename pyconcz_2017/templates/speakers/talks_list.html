@@ -1,4 +1,5 @@
 {% extends "speakers/base_list.html" %}
+
 {% load formatting %}
 
 
@@ -10,10 +11,10 @@
 
 {% block speakers_items %}
   {% for talk in speaker.talks.all %}
-    <span class="talk-title">
-      {{ talk.title }} <span class="talk-difficulty"><small> [{{ talk.difficulty }}]</small></span>
-    </span>
-    <p class="talk-description">{{ talk.abstract|markdown }}</p>
-    <a href="{% url 'talk_detail' type='talk' talk_id=talk.id %}">detail</a>
+    <h3 class="pc_talk__name">
+      <a href="{% url 'talk_detail' type='talk' talk_id=talk.id %}#main">
+        {{ talk.title }}
+      </a>
+    </h3>
   {% endfor %}
 {% endblock %}
