@@ -10,12 +10,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var cleanCSS = require('gulp-clean-css');
 var watch = require('gulp-watch');
 var exec = require('child_process').exec;
-
-
-function handleError(err){
-  console.log(err.toString());
-  process.exit(-1);
-}
+var plumber = require('gulp-plumber');
 
 
 /*
@@ -63,7 +58,8 @@ gulp.task('copy-img', ['clean-img'], function(){
 gulp.task('compile-css', ['clean-css'], function(){
   return gulp
     .src('./pyconcz_2017/static_src/scss/pyconcz.scss') // scss source
-    .pipe(sass().on('error', handleError))
+    .pipe(plumber())
+    .pipe(sass())
     .pipe(sourcemaps.init()) // sourcemap for developer tools
     .pipe(postcss([
       autoprefixer({
