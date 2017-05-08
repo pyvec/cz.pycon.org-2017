@@ -20,6 +20,12 @@ class Speaker(models.Model):
     workshops = models.ManyToManyField(
         'Workshop', blank=True, related_name='workshops')
 
+    display_position = models.PositiveSmallIntegerField(default=0, help_text='sort order on frontend displays')
+    is_public = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ('display_position', 'full_name',)
+
     def __str__(self):
         return self.full_name
 
@@ -45,8 +51,19 @@ class Talk(models.Model):
         max_length=10, choices=DIFFICULTY, default='beginner',
     )
 
+    class Meta:
+        ordering = ('title',)
+
     def __str__(self):
         return self.title
+
+    @property
+    def speakers(self):
+        return self.talks.all()
+
+    @property
+    def speakers_display(self):
+        return ','.join(map(str, self.speakers))
 
 
 class Workshop(models.Model):
@@ -92,6 +109,14 @@ class Workshop(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def speakers(self):
+        return self.workshops.all()
+
+    @property
+    def speakers_display(self):
+        return ','.join(map(str, self.speakers))
 
 
 class Slot(models.Model):

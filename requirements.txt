@@ -7,6 +7,7 @@
 diff-match-patch==20121119  # via django-import-export
 django-import-export==0.5.1
 django==1.10.2
+markdown==2.6.8
 pillow==3.4.1
 psycopg2==2.6.2
 pyt==0.7.26

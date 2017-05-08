@@ -6,14 +6,14 @@ from django.db.models import IntegerField
 from django.db.models import Q
 from django.db.models import Value
 from django.db.models import When
-from django.template import RequestContext
 from django.template.response import TemplateResponse
+from django.shortcuts import get_object_or_404
 
-from pyconcz_2017.speakers.models import Speaker, Slot, EndTime
+from pyconcz_2017.speakers.models import Speaker, Slot, EndTime, Talk, Workshop
 
 
 def speakers_list(request, type):
-    speakers = (Speaker.objects.all()
+    speakers = (Speaker.objects.filter(is_public=True)
                 .exclude(**{type: None})
                 .prefetch_related(type)
                 .order_by('full_name'))
@@ -22,6 +22,17 @@ def speakers_list(request, type):
         request,
         template='speakers/{}_list.html'.format(type),
         context={'speakers': speakers}
+    )
+
+
+def talk_detail(request, type, talk_id):
+    MODEL_MAP = dict(talk=Talk, workshop=Workshop)
+    obj = get_object_or_404(MODEL_MAP.get(type), id=talk_id)
+
+    return TemplateResponse(
+        request,
+        template='speakers/{}_detail.html'.format(type),
+        context={'talk': obj}
     )
 
 
@@ -58,6 +69,7 @@ def _prefetch_generic(ct):
         )
         .order_by('date', 'order')
     )
+
 
 def schedule(request):
     slots = chain(
