@@ -61,6 +61,10 @@ class Talk(models.Model):
     def speakers(self):
         return self.talks.all()
 
+    @property
+    def speakers_display(self):
+        return ','.join(map(str, self.speakers))
+
 
 class Workshop(models.Model):
     DIFFICULTY = (
@@ -109,6 +113,10 @@ class Workshop(models.Model):
     @property
     def speakers(self):
         return self.workshops.all()
+
+    @property
+    def speakers_display(self):
+        return ','.join(map(str, self.speakers))
 
 
 class Slot(models.Model):
