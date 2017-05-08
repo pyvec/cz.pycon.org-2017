@@ -23,7 +23,7 @@
 
         {% if talk.difficulty == 'advanced' %}
           <p class="pc_talk__difficulty">
-            <strong>This talk is aimed at advanced pythonistas.</strong>
+            <strong>This talk is aimed at advanced Pythonistas.</strong>
             (While it might be interesting for begginers we recommend them to choose another talk.)
           </p>
         {% endif %}
@@ -31,7 +31,7 @@
         {% for speaker in talk.speakers %}
           <div class="pc__more">
             {% if speaker.talks.all|length > 1 %}
-              <h2 class="pc_more__heading">Other talk by {{ speaker.full_name }}</h2>
+              <h2 class="pc_more__heading">Another talk by {{ speaker.full_name }}</h2>
             {% endif %}
 
             {% for talk_other in speaker.talks.all %}
