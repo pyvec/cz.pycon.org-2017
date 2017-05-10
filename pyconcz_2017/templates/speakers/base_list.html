@@ -12,54 +12,17 @@
 
     <h1>{% block speakers_title %}{% endblock %}</h1>
 
-    {% comment %}
-    <ul class="speaker-dir__index">
-      <li class="speaker-dir__index__item">Index by first name</li>
-
-      {% for speaker in speakers %}
-        {% with speaker.full_name.0 as index_letter %}
-          {% ifchanged %}
-            <li class="speaker-dir__index__item">
-              <a href="#{{ index_letter }}">{{ index_letter|upper }}</a>
-            </li>
-          {% endifchanged %}
-        {% endwith %}
-      {% endfor %}
-    </ul>
-    {% endcomment %}
-
     <section class="pc_speakers">
-
       {% for speaker in speakers %}
-        {#      {% with speaker.full_name.0 as index_letter %}#}
         <section class="pc_speaker" id="{{ speaker.full_name|slugify }}">
 
           <div class="pc_speaker__photo" style="background-image: url({{ speaker.photo.url }});"></div>
 
-          <h2 class="pc_speaker__name" {% comment %}{% ifchanged %}id="{{ index_letter }}"{% endifchanged %}{% endcomment %}>
-            {{ speaker.full_name }}
-            {% comment %}<a href="#{{ speaker.full_name|slugify }}" name="{{ speaker.full_name|slugify }}" class="speaker__name__link"> </a>{% endcomment %}
-          </h2>
-
-          {% comment %}
-        {% if speaker.github %}
-          <a class="pc_speaker__github" href="https://github.com/{{ speaker.github }}">
-            <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> {{ speaker.github }}
-          </a>
-        {% endif %}
-
-        {% if speaker.twitter %}
-          <a class="pc_speaker__twitter" href="https://twitter.com/{{ speaker.twitter }}">
-            <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> {{ speaker.twitter }}
-          </a>
-        {% endif %}
-        {% endcomment %}
-          {#        <div class="pc_speaker__bio">{{ speaker.bio|truncatewords:30|markdown }}</div>#}
+          <h2 class="pc_speaker__name">{{ speaker.full_name }}</h2>
 
           {% block speakers_items %}{% endblock %}
 
         </section>
-        {#      {% endwith %}#}
       {% endfor %}
     </section>
   </main>

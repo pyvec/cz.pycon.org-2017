@@ -84,9 +84,13 @@
     ol,
     ul { padding-left: 1.5em; }
 
-    p { margin-top: 0; }
+    ol,
+    ul,
+    p { margin: 0 0 1em; }
 
     img { max-width: 100%; }
+
+    a { text-decoration: underline; }
   }
 
 }
