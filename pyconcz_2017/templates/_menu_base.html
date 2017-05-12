@@ -58,9 +58,11 @@ If you want to remove menu item globally, comment it out here.
     {% endblock %}
 
     {% block link_financial_aid %}
+      {% comment %}
       <li class="nav__item">
         <a href="{% url 'proposal_form' key='financial-aid' %}" class="nav__link ">Financial Aid</a>
       </li>
+      {% endcomment %}
     {% endblock %}
 
     {% block link_coc %}
