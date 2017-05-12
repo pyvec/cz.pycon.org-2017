@@ -77,4 +77,9 @@ header {
   margin-right: auto;
   margin-top: -1em;
   border-bottom: 1px solid $color-light;
+
+  .nav__item {
+    flex: 1 1 30%;
+    font-size: 1.4rem;
+  }
 }
