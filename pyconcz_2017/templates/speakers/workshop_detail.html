@@ -1,11 +1,27 @@
 {% extends "_base.html" %}
 
 {% load formatting %}
+{% load static %}
+
+
+{% block meta_title %}PyCon CZ – {{ talk.title }} – a workshop by {{ talk.speakers|join:', ' }}{% endblock %}
+
+
+{% block meta_social_customizable %}
+  <meta property="og:title" content="PyCon CZ – {{ talk.title }} – a workshop by {{ talk.speakers|join:', ' }}">
+  <meta property="og:description" content="{{ talk.abstract|markdown|striptags|linebreaks|striptags|truncatechars:300 }}">
+  {% with og_speaker=talk.speakers|first %}
+    <meta property="og:image" content="https://{{ request.get_host }}{{ og_speaker.photo.url }}">
+    <meta property="og:image:width" content="{{ og_speaker.photo.width }}">
+    <meta property="og:image:height" content="{{ og_speaker.photo.height }}">
+  {% endwith %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image:alt" content="{{ talk.speakers|join:', ' }}">
+{% endblock %}
 
 
 {% block content %}
   <main class="pc_container" role="main" id="main">
-
     <div class="nav nav--programme">
       {% include '_menu_programme.html' %}
     </div>
@@ -47,7 +63,7 @@
           </div>
         {% endfor %}
 
-      {% comment %}
+        {% comment %}
        {% if speaker.workshops.all %}
               <h2 class="pc_more__heading">Workshop{{ speaker.workshops.all|pluralize }} by {{ speaker.full_name }}</h2>
             {% endif %}
