@@ -8,6 +8,7 @@ from django.db.models import Value
 from django.db.models import When
 from django.template.response import TemplateResponse
 from django.shortcuts import get_object_or_404
+from django.conf import settings
 
 from pyconcz_2017.speakers.models import Speaker, Slot, EndTime, Talk, Workshop
 
@@ -38,9 +39,9 @@ def talk_detail(request, type, talk_id):
 
 def _prefetch_generic(ct):
     if ct == 'talk':
-        lookup = {'date__lt': datetime.datetime(year=2016, month=10, day=30)}
+        lookup = {'date__lt': settings.WORKSHOPS_DATES[0]}
     else:
-        lookup = {'date__gte': datetime.datetime(year=2016, month=10, day=30)}
+        lookup = {'date__gte': settings.WORKSHOPS_DATES[0]}
 
     return (
         Slot.objects.all()
@@ -56,18 +57,9 @@ def _prefetch_generic(ct):
             'content_object__{}s'.format(ct)
         )
         .annotate(
-            order=Case(
-                When(room='d105', then=Value(1)),
-                When(room='d0206', then=Value(2)),
-                When(room='d0207', then=Value(3)),
-                When(room='a112', then=Value(4)),
-                When(room='a113', then=Value(5)),
-                default=Value(0),
-                output_field=IntegerField()
-            ),
             date_end=EndTime()
         )
-        .order_by('date', 'order')
+        .order_by('date', 'room')
     )
 
 
@@ -81,6 +73,8 @@ def schedule(request):
         request,
         template='speakers/slot_schedule.html',
         context={
-            'slots': slots
+            'slots': slots,
+            'TALKS_ROOMS': [one[0] for one in settings.TALKS_ROOMS],
+            'WORKSHOPS_ROOMS': [one[0] for one in settings.WORKSHOPS_ROOMS],
         }
     )

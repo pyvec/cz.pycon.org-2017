@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
@@ -173,3 +174,15 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(TMP_DIR, 'media')
 
 SLACK_WEBHOOK = ''  # This variable is set in local.py
+
+TALKS_DATES = [datetime.date(2017, 6, 8), datetime.date(2017, 6, 9)]
+WORKSHOPS_DATES = [datetime.date(2017, 6, 10)]
+TALKS_ROOMS = [
+    (1, 'Big hall'),
+    (2, 'Theatre'),
+]
+WORKSHOPS_ROOMS = []
+OTHER_ROOMS = [
+    (3, 'Foyer'),
+]
+ALL_ROOMS = TALKS_ROOMS + WORKSHOPS_ROOMS + OTHER_ROOMS
