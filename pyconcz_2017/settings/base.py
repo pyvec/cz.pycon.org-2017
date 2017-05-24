@@ -181,8 +181,17 @@ TALKS_ROOMS = [
     (1, 'Big hall'),
     (2, 'Theatre'),
 ]
-WORKSHOPS_ROOMS = []
+WORKSHOPS_ROOMS = [
+    (4, 346),
+    (5, 347),
+    (6, 301),
+    (7, 302),
+    (8, 303),
+]
+SPRINT_ROOMS = [
+    (9, 343),
+]
 OTHER_ROOMS = [
     (3, 'Foyer'),
 ]
-ALL_ROOMS = TALKS_ROOMS + WORKSHOPS_ROOMS + OTHER_ROOMS
+ALL_ROOMS = TALKS_ROOMS + WORKSHOPS_ROOMS + SPRINT_ROOMS + OTHER_ROOMS

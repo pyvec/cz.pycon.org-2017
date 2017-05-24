@@ -76,5 +76,6 @@ def schedule(request):
             'slots': slots,
             'TALKS_ROOMS': [one[0] for one in settings.TALKS_ROOMS],
             'WORKSHOPS_ROOMS': [one[0] for one in settings.WORKSHOPS_ROOMS],
+            'SPRINT_ROOMS': [one[0] for one in settings.SPRINT_ROOMS],
         }
     )
