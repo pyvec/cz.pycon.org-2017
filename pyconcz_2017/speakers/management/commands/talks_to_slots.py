@@ -9,8 +9,13 @@ from pyconcz_2017.speakers.models import Slot, Talk
 
 class Command(BaseCommand):
 
+    def add_arguments(self, parser):
+        parser.add_argument('--talk-id', dest='talk_id', type=int, help='talk id')
+
     def handle(self, *args, **options):
-        for one in Talk.objects.all():
+        qs = Talk.objects.all() if not options['talk_id'] else Talk.objects.filter(id=options['talk_id'])
+
+        for one in qs:
             Slot.objects.create(
                 date=timezone.make_aware(datetime.datetime(settings.TALKS_DATES[0].year,
                                                            settings.TALKS_DATES[0].month,
