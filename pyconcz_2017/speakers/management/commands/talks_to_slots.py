@@ -25,3 +25,5 @@ class Command(BaseCommand):
                 content_object=one,
                 room=settings.TALKS_ROOMS[0][0],
             )
+
+        self.stdout.write(self.style.SUCCESS('Copied %d talks' % qs.count()))
