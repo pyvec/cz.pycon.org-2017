@@ -148,7 +148,7 @@
             </a>
           </h3>
           <p class="homepage-day-venue">
-            <strong>Nine</strong> <a href="{% url 'speakers_list' type='workshops' %}">workshops</a>
+            <strong>Eight</strong> <a href="{% url 'speakers_list' type='workshops' %}">workshops</a>
             in two blocks and sprinting <strong>all day long</strong>.
             Hack on open-source projects together with other Python community members.
           </p>
@@ -169,14 +169,16 @@
 
       <h1 class="text-center" id="tickets">Tickets are available!</h1>
 
+
       <div class="homepage-row">
-        <div class="homepage-column changed">
-          <p>Please note that <strong>the conference starts and ends a day earlier than initially announced</strong>. Also, the venue had to change.</p>
+        <div class="homepage-column">
           <p>
-            We are sorry for any inconvenience caused.
-            <br>If you have any problems please <a href="mailto:info@pycon.cz">let us know</a> and we’ll try to find a way to help you.
-          </p>
-          <p><a href="http://blog.python.cz/pycon-cz-2017-changes-date-and-venue">Want to know more about the change?</a></p>
+            Please note that <strong>the conference starts and ends a day earlier than initially announced</strong>. Also, the venue had to change.
+            <br>
+            {% comment %}We are sorry for any inconvenience caused. <br>{% endcomment %}
+            If you have any problems please <a href="mailto:info@pycon.cz">let us know</a> and we’ll try to find a way to help you.
+
+            <br><a href="http://blog.python.cz/pycon-cz-2017-changes-date-and-venue">Want to know more about the change?</a></p>
         </div>
       </div>
 
