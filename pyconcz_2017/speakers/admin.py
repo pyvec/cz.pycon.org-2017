@@ -7,8 +7,9 @@ from .models import Speaker, Talk, Slot, Workshop
 
 
 class SlotAdmin(admin.ModelAdmin):
-    list_display = ['date', 'get_description', 'room']
-    list_filter = ['room']
+    list_display = ['get_description', 'date', 'room']
+    list_filter = ['room', 'date', ]
+    list_editable = ['room', 'date']
     date_hierarchy = 'date'
 
     def get_queryset(self, request):

@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
@@ -120,15 +121,6 @@ class Workshop(models.Model):
 
 
 class Slot(models.Model):
-    ROOM = (
-        ('foyer', 'Foyer'),
-        ('d105',  'Main (D105)'),
-        ('d0206', 'Right (D0206)'),
-        ('d0207', 'Left (D0207)'),
-
-        ('a112', 'A112'),
-        ('a113', 'A113'),
-    )
     date = models.DateTimeField()
 
     content_type = models.ForeignKey(
@@ -137,7 +129,10 @@ class Slot(models.Model):
     content_object = GenericForeignKey('content_type', 'object_id')
 
     description = models.CharField(max_length=100, blank=True, default='')
-    room = models.CharField(max_length=5, choices=ROOM)
+    room = models.PositiveSmallIntegerField(choices=settings.ALL_ROOMS)
+
+    class Meta:
+        ordering = ('date', 'room',)
 
 
 class EndTime(models.Func):

@@ -300,19 +300,24 @@
 }
 
 .changed {
-  background-color: #ffff74;
+  //$color-high-visibility: #ffff74;
+  $color-high-visibility: #ffffcc;
+
+  background-color: $color-high-visibility;
   margin: 1em 0;
   padding: 0 1em;
+  //font-size: 0.8rem;
 
   @media screen and (min-width: 992px) {
     margin: 1em;
   }
+
   a { text-decoration: underline; }
 
   &--small {
     display: block;
     font-size: $font-small;
-    background-color: #ffff74;
+    background-color: $color-high-visibility;
     margin: 0;
     padding: .2em .4em;
   }
