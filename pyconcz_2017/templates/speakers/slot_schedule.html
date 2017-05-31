@@ -1,8 +1,5 @@
 {% extends "_base.html" %}
 
-{% load slot_tags %}
-
-
 
 {% block content %}
   <main class="pc_container" role="main">
@@ -12,12 +9,12 @@
     </div>
 
     <h1>Schedule</h1>
-    <p class="pc_schedule__under-construction">More detailed schedule coming&nbsp;soon!</p>
 
+    {% comment %}
+    {# Temporary schedule #}
     <section class="pc_schedule__list pc_schedule__list--temporary">
-
       <div class="pc_schedule__day">
-        <h2 class="pc_schedule__date">Thursday<br> 8<sup>th</sup> June</h2>
+        <h2 class="pc_schedule__date">Thursday,<br> 08 June</h2>
         <p class="pc_schedule__place">MeetFactory</p>
         <p class="pc_schedule__item">
           Registration
@@ -31,7 +28,7 @@
 
       <div class="pc_schedule__day">
 
-        <h2 class="pc_schedule__date">Friday<br>  9<sup>th</sup> June</h2>
+        <h2 class="pc_schedule__date">Friday,<br> 09 June</h2>
         <p class="pc_schedule__place">MeetFactory</p>
         <p class="pc_schedule__item">
           Registration
@@ -51,7 +48,7 @@
       </div>
 
       <div class="pc_schedule__day">
-        <h2 class="pc_schedule__date">Saturday<br>  10<sup>th</sup> June</h2>
+        <h2 class="pc_schedule__date">Saturday,<br> 10 June</h2>
         <p class="pc_schedule__place">
           <a href="https://goo.gl/maps/ZA3DoxKdt3m">FIT&nbsp;CTU</a>
         </p>
@@ -61,95 +58,77 @@
         </p>
       </div>
     </section>
+    {% endcomment %}
 
+    {# Full schedule #}
+
+    {% regroup slots by date|date:'l, d F' as slots_by_date %}
+
+    <section class="pc_schedule__list">
+
+      {% for day in slots_by_date %}
+        <div class="pc_schedule__day">
+
+          <h2 class="pc_schedule__date">{{ day.grouper }}</h2>
+          <p class="pc_schedule__place">
+            {% if day.grouper == 'Saturday, 10 June' %}
+              Sprints and Workshops<br>
+              <a href="https://goo.gl/maps/ZA3DoxKdt3m">FIT&nbsp;CTU</a>
+            {% else %}
+              Talks<br>
+              MeetFactory
+            {% endif %}
+          </p>
+
+          {% regroup day.list by date as slots_by_time %}
+
+          {% for slot in slots_by_time %}
+            {% if slot.list.0.description != 'Break' %}
+              <div class="pc_schedule__item {% if slot.list.0.description %}pc_schedule__item--break{% endif %}">
+                <span class="pc_schedule__time">{{ slot.grouper|time }}</span>
+                {{ slot.list.0.description }}
+
+                <div class="pc_schedule__slot">
+                  {% for slot_item in slot.list %}
+                    {% if slot_item.content_type or slot_item.description == 'Sprints' %}
+                      <div class="pc_schedule__room">
+
+                        <p class="pc_schedule__room__id">
+                          {% for key, value in ALL_ROOMS %}
+                            {% if slot_item.room == key %} {{ value }} {% endif %}
+                          {% endfor %}
+                        </p>
+
+                        {% if slot_item.content_type.model == 'talk' %}
+                          <a class="pc_schedule__details" href="{% url 'talk_detail' type='talk' talk_id=slot_item.content_object.id %}#main">
+                            <span class="pc_schedule__title">{{ slot_item.content_object.title }}</span>
+                          </a>
+                          <span class="pc_schedule__speakers">{{ slot_item.content_object.talks.all|join:'<br>' }}</span>
+                        {% elif slot_item.content_type.model == 'workshop' %}
+                          <a class="pc_schedule__details" href="{% url 'talk_detail' type='workshop' talk_id=slot_item.content_object.id %}#main">
+                            <span class="pc_schedule__title">{{ slot_item.content_object.title }}</span>
+                          </a>
+                          <span class="pc_schedule__speakers">{{ slot_item.content_object.workshops.all|join:'<br>' }}</span>
+                        {% elif slot_item.description == 'Sprints' %}
+                          <span class="pc_schedule__details">
+                            <span class="pc_schedule__title">{{ slot_item.description }}</span>
+                          </span>
+                          <span class="pc_schedule__speakers">{{ slot_item.content_object.workshops.all|join:'<br>' }}</span>
+                        {% endif %}
+
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+
+              </div>
+            {% endif %}
+          {% endfor %}
+
+        </div>
+      {% endfor %}
+
+    </section>
   </main>
 
-  {% comment %}
-  {% regroup slots by date as slots_by_time %}
-
-  <div class="container timeline">
-    {% for slot in slots_by_time %}
-      {% ifchanged slot.grouper|date %}
-        <h2 class="timeline__day">{{ slot.grouper|date:"l, d F" }}</h2>
-
-        {% if slot.grouper|day_type == 'workshops' %}
-          <p>
-            Sprints are open whole day along with workshops. All sprints
-            will be announced during Saturday.
-          </p>
-        {% endif %}
-
-        <div class="timeline__header">
-          {% if slot.grouper|day_type == 'talks' %}
-            <h3 class="timeline__time timeline--header">Time</h3>
-
-            <ul class="timeline__tracks timeline--header">
-              <li class="timeline__talk">Room Main (D105)</li>
-              <li class="timeline__talk">Room Right (D0206)</li>
-              <li class="timeline__talk">Room Left (D0207)</li>
-            </ul>
-          {% else %}
-            <ul class="timeline__tracks timeline--header">
-              <li class="timeline__workshop">Room A112</li>
-              <li class="timeline__workshop">Room A113</li>
-            </ul>
-          {% endif %}
-        </div>
-      {% endifchanged %}
-
-      <div class="timeline__slot {% if slot.list.0.description %}timeline__slot--shared{% endif %}">
-        {% if slot.grouper|day_type == 'talks' %}
-          <h3 class="timeline__time">{{ slot.grouper|time }}</h3>
-        {% endif %}
-
-        {% if slot.list.0.description %}
-          <div class="timeline__shared">
-            {{ slot.list.0.description }}
-          </div>
-        {% else %}
-          <ul class="timeline__tracks">
-            {% if slot.list|length == 1 and not slot.list.0.content_object.talks.all.0.keynote %}
-              <li class="timeline__workshop"></li>
-            {% endif %}
-            {% for talk in slot.list %}
-              {% with talk.content_object as event %}
-                {% if talk.content_type.model == 'talk' %}
-                  <li class="timeline__talk {% if event.talks.all.0.keynote %}timeline__talk--keynote{% endif %}">
-                    <span class="timeline__talk__room">Room {{ talk.get_room_display }}</span>
-                    <span class="timeline__talk__title">
-                      {% if event.talks.all.0.keynote %}Keynote: {% endif %}
-                      {{ event.title }}
-                    </span>
-                    <span class="timeline__talk__speaker">
-                      by
-                      {% for speaker in event.talks.all %}
-                        <a href="{% url "speakers_list" type="talks" %}#{{ speaker.full_name|slugify }}">{{ speaker }}</a>
-                        {% if not forloop.last %} and {% endif %}
-                      {% endfor %}
-                    </span>
-                  </li>
-                {% elif talk.content_type.model == 'workshop' %}
-                  <li class="timeline__workshop">
-                    {{ talk.date|time }} - {{ talk.date_end|time }}
-                    <span class="timeline__workshop__room">Room {{ talk.room|upper }}</span>
-                    <span class="timeline__workshop__title">{{ event.title }}</span>
-                    <span class="timeline__workshop__speaker">
-                      by
-                      {% for speaker in event.workshops.all %}
-                        <a href="{% url "speakers_list" type="workshops" %}#{{ speaker.full_name|slugify }}">{{ speaker }}</a>
-                        {% if not forloop.last %} and {% endif %}
-                      {% endfor %}
-                    </span>
-                  </li>
-                {% else %}
-                  {{ talk.description }}
-                {% endif %}
-              {% endwith %}
-            {% endfor %}
-          </ul>
-        {% endif %}
-      </div>
-    {% endfor %}
-  </div>
-  {% endcomment %}
 {% endblock %}
