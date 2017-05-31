@@ -182,14 +182,14 @@ TALKS_ROOMS = [
     (2, 'Theatre'),
 ]
 WORKSHOPS_ROOMS = [
-    (4, 346),
-    (5, 347),
-    (6, 301),
-    (7, 302),
-    (8, 303),
+    (4, 'room 346'),
+    (5, 'room 347'),
+    (6, 'room 301'),
+    (7, 'room 302'),
+    (8, 'room 303'),
 ]
 SPRINT_ROOMS = [
-    (9, 343),
+    (9, 'room 343'),
 ]
 OTHER_ROOMS = [
     (3, 'Foyer'),

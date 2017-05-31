@@ -1,11 +1,6 @@
-import datetime
 from itertools import chain
 
-from django.db.models import Case
-from django.db.models import IntegerField
 from django.db.models import Q
-from django.db.models import Value
-from django.db.models import When
 from django.template.response import TemplateResponse
 from django.shortcuts import get_object_or_404
 from django.conf import settings
