@@ -11,7 +11,4 @@ class Announcement(models.Model):
         ordering = ['-date_created']
 
     def __str__(self):
-        if len(self.message) > 30:
-            return self.message[:30] + '…'
-        else:
-            return self.message
+        return self.message[:30] + '…' if len(self.message) > 30 else self.message
