@@ -27,4 +27,4 @@ def up_next(request, track):
 
 def announcements(request):
     return render(request, 'intermission/annoucements.html',
-                  dict(announcements=Announcement.objects.all()))
+                  dict(announcements=Announcement.objects.all()[:7]))
