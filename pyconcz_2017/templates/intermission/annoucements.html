@@ -1,0 +1,10 @@
+{% load formatting %}
+
+<h1>Annoucements</h1>
+
+<p>
+{% for one in announcements %}
+	{{ one.date_created }}
+	{{ one.message|markdown }}
+{% endfor %}
+</p>	
