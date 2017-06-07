@@ -60,12 +60,14 @@
 }
 
 .sponsors__level-group {
+  margin-top: 3em;
   text-align: center;
   margin-bottom: vr(2);
 }
 
 .sponsors__item {
   display: inline-block;
+  margin: 1em 0;
 
   img {
     width: 80%;
