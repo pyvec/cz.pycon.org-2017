@@ -1,7 +1,7 @@
 <h1>Our {{ sponsors.0.get_level_display }} sponsors</h1>
 <div class="sponsors-yeah">
 {% for sponsor in sponsors %}
-    <img src="http://cz.pycon.org{{ sponsor.logo.url }}" alt="{{ sponsor.name }}">
+    <img src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}">
     <!-- <small>{{ sponsor.name }}</small> -->
 
 
