@@ -1,6 +1,5 @@
-Next up in {{ slot.get_room_display }}
-
-<p>
-	{{ slot.content_object }}
-	{{ slot.description }}
-</p>
+<h1>Next up in {{ slot.get_room_display }}</h1>
+<div class="ann">
+    <div class="ann-content next-up">{{ slot.content_object.title }}</div>
+    <p>{{ slot.content_object.talks.all|join:', ' }}</p>
+</div>
