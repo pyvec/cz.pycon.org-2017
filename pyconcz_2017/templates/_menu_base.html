@@ -32,9 +32,9 @@ If you want to remove menu item globally, comment it out here.
     {% endblock %}
 
     {% block link_tickets %}
-      <li class="nav__item">
+      {% comment %}<li class="nav__item">
         <a href="/2017/#tickets" class="nav__link">Tickets</a>
-      </li>
+      </li>{% endcomment %}
     {% endblock %}
 
     {% block link_talks %}
