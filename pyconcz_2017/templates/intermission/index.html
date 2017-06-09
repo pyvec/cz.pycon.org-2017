@@ -47,18 +47,24 @@
 
 	urls = [
 	'{% url 'intermission:annoucements' %}',
+  '{% url 'intermission:workshop_sinners' %}',
 
 	'{% url 'intermission:up_next' track=1 %}',
 	'{% url 'intermission:up_next' track=2 %}',
+
+  '{% url 'intermission:workshop_sinners' %}',
 
 	'{% url 'intermission:sponsors' level=1 %}',
 	'{% url 'intermission:sponsors' level=2 %}',
 	'{% url 'intermission:sponsors' level=3 %}',
 
 	'{% url 'intermission:annoucements' %}',
+  '{% url 'intermission:workshop_sinners' %}',
 
 	'{% url 'intermission:up_next' track=1 %}',
 	'{% url 'intermission:up_next' track=2 %}',
+
+  '{% url 'intermission:workshop_sinners' %}',
 
 	'{% url 'intermission:sponsors' level=4 %}',
 	'{% url 'intermission:sponsors' level=5 %}',
@@ -85,7 +91,7 @@
 	        $("#content").html(data)});
 	}
 
-	cycle(4000, fetch_content, urls);
+	cycle(5000, fetch_content, urls);
 });
 
 </script>
@@ -115,6 +121,18 @@
 
   /*.sponsors-yeah img { display: block; width: 300px; float: left; margin: 10px; }*/
   /*.sponsor-yeah small { display: block; margin: 0 auto; }*/
+
+  .sinners {
+    display: flex; justify-content: center; flex-wrap: wrap;
+  }
+
+  .sinners span {
+    display: block;
+    margin: 0.5em 1em;
+    color: #0f8a8a;
+    font-size: 150%;
+    font-weight: bolder;
+  }
 </style>
 </head>
 <body>

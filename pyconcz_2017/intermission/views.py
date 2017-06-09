@@ -28,3 +28,7 @@ def up_next(request, track):
 def announcements(request):
     return render(request, 'intermission/annoucements.html',
                   dict(announcements=Announcement.objects.all()[:7]))
+
+
+def workshop_sinners(request):
+    return render(request, 'intermission/workshop_sinners.html', context={})
