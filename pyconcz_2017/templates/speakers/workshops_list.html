@@ -5,7 +5,11 @@
 {% block meta_title %}PyCon CZ Workshops{% endblock %}
 
 
-{% block speakers_title %}Workshops{% endblock %}
+{% block speakers_title %}
+  Workshops
+  {% comment %}<br><small><a href="#tickets">get tickets</a></small>{% endcomment %}
+{% endblock %}
+
 
 
 {% block speakers_items %}
@@ -17,3 +21,22 @@
     </h3>
   {% endfor %}
 {% endblock %}
+
+
+{# Uncomment for workshops tickets on page #}
+{% comment %}
+{% block meta_head %}
+  {{ block.super }}
+  <!-- place this in your head tag -->
+  <link rel="stylesheet" type="text/css" href='https://css.tito.io/v1.1'>
+  <script src='https://js.tito.io/v1' async></script>
+{% endblock %}
+
+{% block main %}
+  {{ block.super }}
+  <h1 class="text-center" id="tickets">Workshop tickets</h1>
+  <p class="text-center">These are only for PyCon attendees.<br><strong>Please don't register for more workshops at the same time.</strong></p>
+  <tito-widget event="pyvec/pycon-cz-2017"></tito-widget>
+{% endblock %}
+{% endcomment %}
+

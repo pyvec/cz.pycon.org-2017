@@ -93,7 +93,7 @@
   }
 
   @media (max-width: 992px) {
-    .homepage-day-venue {
+    .homepage-day-venue, .homepage-day-stream {
       margin: auto;
     }
   }
@@ -320,5 +320,15 @@
     background-color: $color-high-visibility;
     margin: 0;
     padding: .2em .4em;
+  }
+}
+
+.homepage-column-stream {
+  a:hover {
+    text-decoration: none;
+  }
+
+  a:hover span {
+    text-decoration: underline;
   }
 }

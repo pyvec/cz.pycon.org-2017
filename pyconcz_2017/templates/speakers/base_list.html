@@ -5,6 +5,8 @@
 
 {% block content %}
   <main class="pc_container" role="main">
+  {% block main %}
+
     <div class="nav nav--programme">
       {% include '_menu_programme.html' %}
     </div>
@@ -24,5 +26,8 @@
         </section>
       {% endfor %}
     </section>
+
+  {% endblock %}
+
   </main>
 {% endblock %}

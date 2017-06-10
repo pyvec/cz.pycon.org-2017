@@ -9,31 +9,37 @@ If you want to remove menu item globally, comment it out here.
   {% block items %}
     {% block link_home %}
       <li class="nav__item">
-        <a href="/2017/" class="nav__link ">Home</a>
+        <a href="/2017/" class="nav__link">Home</a>
       </li>
     {% endblock %}
 
     {% block link_about %}
       <li class="nav__item">
-        <a href="{% url 'about' %}" class="nav__link ">About</a>
+        <a href="{% url 'about' %}" class="nav__link">About</a>
+      </li>
+    {% endblock %}
+
+    {% block link_about_city %}
+      <li class="nav__item">
+        <a href="{% url "about_city" %}" class="nav__link">About Prague</a>
       </li>
     {% endblock %}
 
     {% block link_team %}
       <li class="nav__item">
-        <a href="{% url 'team_list' %}" class="nav__link ">Team</a>
+        <a href="{% url 'team_list' %}" class="nav__link">Team</a>
       </li>
     {% endblock %}
 
     {% block link_tickets %}
-      <li class="nav__item">
-        <a href="/2017/#tickets" class="nav__link ">Tickets</a>
-      </li>
+      {% comment %}<li class="nav__item">
+        <a href="/2017/#tickets" class="nav__link">Tickets</a>
+      </li>{% endcomment %}
     {% endblock %}
 
     {% block link_talks %}
       <li class="nav__item">
-        <a href="{% url 'speakers_list' type='talks' %}" class="nav__link ">
+        <a href="{% url 'speakers_list' type='talks' %}" class="nav__link">
           {% block link_talks_title %}Talks{% endblock %}
         </a>
       </li>
@@ -41,40 +47,40 @@ If you want to remove menu item globally, comment it out here.
 
     {% block link_workshops %}
       <li class="nav__item">
-        <a href="{% url 'speakers_list' type='workshops' %}" class="nav__link ">Workshops</a>
+        <a href="{% url 'speakers_list' type='workshops' %}" class="nav__link">Workshops</a>
       </li>
     {% endblock %}
 
     {% block link_schedule %}
       <li class="nav__item">
-        <a href="{% url 'speakers_schedule' %}" class="nav__link ">Schedule</a>
+        <a href="{% url 'speakers_schedule' %}" class="nav__link">Schedule</a>
       </li>
     {% endblock %}
 
     {% block link_sponsors %}
       <li class="nav__item">
-        <a href="{% url 'sponsors_list' %}" class="nav__link ">Sponsors</a>
+        <a href="{% url 'sponsors_list' %}" class="nav__link">Sponsors</a>
       </li>
     {% endblock %}
 
     {% block link_financial_aid %}
       {% comment %}
       <li class="nav__item">
-        <a href="{% url 'proposal_form' key='financial-aid' %}" class="nav__link ">Financial Aid</a>
+        <a href="{% url 'proposal_form' key='financial-aid' %}" class="nav__link">Financial Aid</a>
       </li>
       {% endcomment %}
     {% endblock %}
 
     {% block link_coc %}
       <li class="nav__item">
-        <a href="{% url 'about_code' %}" class="nav__link ">Code of Conduct</a>
+        <a href="{% url 'about_code' %}" class="nav__link">Code of Conduct</a>
       </li>
     {% endblock %}
 
     {% block link_call_for_papers %}
       {% comment %}
         <li class="nav__item">
-          <a href="{% url 'proposals' %}" class="nav__link ">Call for Papers</a>
+          <a href="{% url 'proposals' %}" class="nav__link">Call for Papers</a>
         </li>
       {% endcomment %}
     {% endblock %}
