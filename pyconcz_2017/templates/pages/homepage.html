@@ -74,7 +74,7 @@
           <nav class="nav-main">
             <ul>
               {% comment %}<li><a href="/2017/about">About</a></li>{% endcomment %}
-              <li><a href="#tickets">Workshop tickets</a></li>
+              {% comment %}<li><a href="#tickets">Workshop tickets</a></li>{% endcomment %}
               <li><a href="{% url 'speakers_schedule' %}">Schedule</a></li>
               <li><a href="{% url 'speakers_list' type='talks' %}">Talks</a></li>
               <li><a href="{% url 'speakers_list' type='workshops' %}">Workshops</a></li>
@@ -97,6 +97,7 @@
         and <strong>surrounding EU</strong>.
       </div>
 
+      {% comment %}
       <h2 class="text-center">We're on! Watch on-line stream!</h2>
       <div class="homepage-row">
         <div class="homepage-column homepage-column-stream">
@@ -116,6 +117,7 @@
           </a>
         </div>
       </div>
+      {% endcomment %}
 
       <h2 class="text-center">Prague, mother of all cities</h2>
       <div class="homepage-claim">
@@ -159,7 +161,7 @@
           </h3>
           <p class="homepage-day-venue">
             <strong>Two days</strong>, <strong>two</strong> parallel tracks,
-            <strong>four</strong> keynotes and <strong>25+</strong>
+            <strong>four</strong> keynotes and <strong>27</strong>
             <a href="{% url 'speakers_list' type='talks' %}">awesome talks</a>.
           </p>
         </div>
@@ -173,7 +175,7 @@
             </a>
           </h3>
           <p class="homepage-day-venue">
-            <strong>Eight</strong> <a href="{% url 'speakers_list' type='workshops' %}">workshops</a>
+            <strong>Nine</strong> <a href="{% url 'speakers_list' type='workshops' %}">workshops</a>
             in two blocks and sprinting <strong>all day long</strong>.
             Hack on open-source projects together with other Python community members.
           </p>
@@ -192,8 +194,10 @@
         {% endfor %}
       </div>
 
+      {% comment %}
       <h1 class="text-center" id="tickets">Workshop tickets</h1>
       <p class="text-center">These are only for PyCon attendees.<br><strong>Please don't register for more workshops at the same time.</strong></p>
+      {% endcomment %}
 
       {% comment %}
       <div class="homepage-row">
@@ -209,7 +213,7 @@
       </div>
       {% endcomment %}
 
-      <tito-widget event="pyvec/pycon-cz-2017"></tito-widget>
+      {% comment %}<tito-widget event="pyvec/pycon-cz-2017"></tito-widget>{% endcomment %}
 
       <div class="homepage-social">
         {% comment %}
