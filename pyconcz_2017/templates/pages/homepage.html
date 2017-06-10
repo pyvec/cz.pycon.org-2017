@@ -65,21 +65,24 @@
           <h1 class="header-title">
             PyCon&nbsp;CZ 2017 Prague
             8&#8209;10&nbsp;June
+            {% comment %}
             <span class="changed changed--small">
               PyCon CZ starts a day earlier than initially announced. <a href="http://blog.python.cz/pycon-cz-2017-changes-date-and-venue">read&nbsp;more</a>
             </span>
-
+            {% endcomment %}
           </h1>
           <nav class="nav-main">
             <ul>
-              <li><a href="/2017/about">About</a></li>
-              <li><a href="#tickets">Tickets</a></li>
-              <li><a href="{% url 'speakers_list' type='talks' %}">Programme</a></li>
-              {% comment %}<li><a href="{% url 'speakers_list' type='workshops' %}">Workshops</a></li>{% endcomment %}
+              {% comment %}<li><a href="/2017/about">About</a></li>{% endcomment %}
+              <li><a href="#tickets">Workshop tickets</a></li>
+              <li><a href="{% url 'speakers_schedule' %}">Schedule</a></li>
+              <li><a href="{% url 'speakers_list' type='talks' %}">Talks</a></li>
+              <li><a href="{% url 'speakers_list' type='workshops' %}">Workshops</a></li>
               {% comment %}<li><a href="/2017/about/team">Team</a></li>{% endcomment %}
               {% comment %}<li><a href="{% url "proposal_about" key="financial-aid" %}">Financial Aid</a></li>{% endcomment %}
               {% comment %}<li><a href="{% url "sponsors_offer"%}">Sponsorship</a></li>{% endcomment %}
               {% comment %}<li><a href="/2017/proposals/talks">Call for Papers</a></li>{% endcomment %}
+              <li><a href="{% url "about_city" %}">About Prague</a></li>
               <li><a href="/2017/about/code">Code of Conduct</a></li>
             </ul>
           </nav>
@@ -94,6 +97,26 @@
         and <strong>surrounding EU</strong>.
       </div>
 
+      <h2 class="text-center">We're on! Watch on-line stream!</h2>
+      <div class="homepage-row">
+        <div class="homepage-column homepage-column-stream">
+            <h3>
+              <a href="https://www.youtube.com/watch?v=motIB96FI48">
+                <i class="fa fa-3x fa-play-circle" aria-hidden="true"></i>
+                <span>Main</span>
+              </a>
+            </h3>
+        </div>
+        <div class="homepage-column homepage-column-stream">
+          <a href="https://www.youtube.com/watch?v=2Azpwf2LRK0">
+            <h3>
+              <i class="fa fa-3x fa-play-circle" aria-hidden="true"></i>
+              <span>Theatre</span>
+            </h3>
+          </a>
+        </div>
+      </div>
+
       <h2 class="text-center">Prague, mother of all cities</h2>
       <div class="homepage-claim">
         <p>Welcome to <strong>Prague</strong>, one of the most beautiful capitals of Europe. You will surely
@@ -103,6 +126,8 @@
         <p>Endless touristy places, not one, but <strong>two castles</strong>, excellent food and drinks on
           every corner, dozens of parks, 4th best ZOO in the world, a river and much more.
           And of course, what better time to visit than <strong>summertime</strong>!</p>
+
+        <p><strong><a href="{% url "about_city" %}">Read more about Prague</a></strong></p>
       </div>
 
       <div class="homepage-row">
@@ -167,20 +192,22 @@
         {% endfor %}
       </div>
 
-      <h1 class="text-center" id="tickets">Tickets are available!</h1>
+      <h1 class="text-center" id="tickets">Workshop tickets</h1>
+      <p class="text-center">These are only for PyCon attendees.<br><strong>Please don't register for more workshops at the same time.</strong></p>
 
-
+      {% comment %}
       <div class="homepage-row">
         <div class="homepage-column">
           <p>
             Please note that <strong>the conference starts and ends a day earlier than initially announced</strong>. Also, the venue had to change.
             <br>
-            {% comment %}We are sorry for any inconvenience caused. <br>{% endcomment %}
+            We are sorry for any inconvenience caused. <br>
             If you have any problems please <a href="mailto:info@pycon.cz">let us know</a> and we’ll try to find a way to help you.
 
             <br><a href="http://blog.python.cz/pycon-cz-2017-changes-date-and-venue">Want to know more about the change?</a></p>
         </div>
       </div>
+      {% endcomment %}
 
       <tito-widget event="pyvec/pycon-cz-2017"></tito-widget>
 
