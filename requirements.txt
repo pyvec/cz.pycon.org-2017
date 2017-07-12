@@ -1,7 +1,9 @@
 django~=1.10.0
-markdown==2.6.8
-pillow==3.4.1
+#apt install libpq-dev
 psycopg2==2.6.2
+markdown==2.6.8
+#apt install libtiff4-dev libjpeg8-dev zlib1g-dev libfreetype6-dev
+pillow==3.4.1
 pyt==0.7.26
 django-import-export==0.5.1
 
