@@ -44,6 +44,12 @@
           </p>
         {% endif %}
 
+        {% if talk.video_url %}
+          <div class="pc_talk__video">
+            <iframe src="{{ talk.video_url }}?rel=0" frameborder="0" allowfullscreen></iframe>
+          </div>
+        {% endif %}
+
         {% for speaker in talk.speakers %}
           <div class="pc__more">
             {% if speaker.talks.all|length > 1 %}
