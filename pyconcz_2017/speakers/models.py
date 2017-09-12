@@ -62,6 +62,21 @@ class Talk(models.Model):
     def speakers_display(self):
         return ','.join(map(str, self.speakers))
 
+    @property
+    def video_embed_url(self):
+        if not self.video_url:
+            return None
+        if '?' in self.video_url:
+            _, _, query = self.video_url.rpartition('?')
+            parts = query.split('&')
+            for part in parts:
+                if part.startswith('v='):
+                    code = part[2:]
+                    break
+        else:
+            code = self.video_url.rstrip('/').rpartition('/')[-1]
+        return 'https://www.youtube.com/embed/' + code
+
 
 class Workshop(models.Model):
     DIFFICULTY = (
