@@ -44,13 +44,9 @@ class Talk(models.Model):
 
     title = models.CharField(max_length=200)
     abstract = models.TextField()
-
-    language = models.CharField(
-        max_length=2, choices=LANGUAGES, default='en'
-    )
-    difficulty = models.CharField(
-        max_length=10, choices=DIFFICULTY, default='beginner',
-    )
+    language = models.CharField(max_length=2, choices=LANGUAGES, default='en')
+    difficulty = models.CharField(max_length=10, choices=DIFFICULTY, default='beginner',)
+    video_url = models.URLField(max_length=400, default='', blank=True)
 
     class Meta:
         ordering = ('title',)
