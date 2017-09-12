@@ -44,13 +44,9 @@ class Talk(models.Model):
 
     title = models.CharField(max_length=200)
     abstract = models.TextField()
-
-    language = models.CharField(
-        max_length=2, choices=LANGUAGES, default='en'
-    )
-    difficulty = models.CharField(
-        max_length=10, choices=DIFFICULTY, default='beginner',
-    )
+    language = models.CharField(max_length=2, choices=LANGUAGES, default='en')
+    difficulty = models.CharField(max_length=10, choices=DIFFICULTY, default='beginner',)
+    video_url = models.URLField(max_length=400, default='', blank=True)
 
     class Meta:
         ordering = ('title',)
@@ -65,6 +61,21 @@ class Talk(models.Model):
     @property
     def speakers_display(self):
         return ','.join(map(str, self.speakers))
+
+    @property
+    def video_embed_url(self):
+        if not self.video_url:
+            return None
+        if '?' in self.video_url:
+            _, _, query = self.video_url.rpartition('?')
+            parts = query.split('&')
+            for part in parts:
+                if part.startswith('v='):
+                    code = part[2:]
+                    break
+        else:
+            code = self.video_url.rstrip('/').rpartition('/')[-1]
+        return 'https://www.youtube.com/embed/' + code
 
 
 class Workshop(models.Model):

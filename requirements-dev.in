@@ -1,5 +1,0 @@
--r requirements.in
-django-debug-toolbar
-ipython
-pip-tools
-fabric3
