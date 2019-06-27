@@ -1,3 +1,8 @@
+> ⚠ This repository is archived 🗄
+>
+> [https://cz.pycon.org/2017/](https://cz.pycon.org/2017/) is now served as a static website. Look for it in the [repo for PyCon CZ 2019](https://github.com/pyvec/cz.pycon.org-2019/) (or further years).
+
+
 PyConCZ 2017
 ============
 
